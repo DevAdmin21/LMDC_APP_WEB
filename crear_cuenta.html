@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crear Cuenta | La Madre Del Caos</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --blanco: #FFFFFF;
+            --negro: #000000;
+            --amarillo-lima: rgb(234, 241, 88);
+            --rojo-oscuro: #821717;
+            --gris-borde: #e1e1e1;
+            --titulo: 'Bebas Neue', sans-serif;
+            --texto: 'Open Sans', sans-serif;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: var(--texto);
+            background-color: var(--negro);
+            color: var(--blanco);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* --- HEADER --- */
+        .encabezado {
+            text-align: center;
+            padding: 2rem 1rem;
+        }
+
+        .encabezado img {
+            height: 80px;
+            margin-bottom: 10px;
+        }
+
+        .encabezado h1 {
+            font-family: var(--titulo);
+            color: var(--amarillo-lima);
+            font-size: 2.5rem;
+            letter-spacing: 2px;
+        }
+
+        /* --- FORMULARIO --- */
+        .contenedor-principal {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 2rem;
+        }
+
+        .form__div {
+            background-color: var(--blanco);
+            color: var(--negro);
+            padding: 2.5rem;
+            border-radius: 15px;
+            width: 100%;
+            max-width: 600px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.5);
+        }
+
+        .form__div h2 {
+            font-family: var(--titulo);
+            font-size: 2.2rem;
+            text-align: center;
+            margin-bottom: 1.5rem;
+            color: var(--negro);
+            border-bottom: 3px solid var(--amarillo-lima);
+            display: inline-block;
+            width: 100%;
+        }
+
+        .fila {
+            display: flex;
+            gap: 15px;
+            margin-bottom: 15px;
+            flex-wrap: wrap;
+        }
+
+        .campo {
+            flex: 1;
+            min-width: 150px;
+        }
+
+        input {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid var(--gris-borde);
+            border-radius: 5px;
+            font-family: var(--texto);
+            font-size: 0.9rem;
+            outline: none;
+            transition: 0.3s;
+        }
+
+        input:focus {
+            border-color: var(--amarillo-lima);
+            box-shadow: 0 0 5px rgba(234, 241, 88, 0.5);
+        }
+
+        .boton-formulario {
+            margin-top: 1rem;
+        }
+
+        .boton-formulario input[type="submit"] {
+            background-color: var(--negro);
+            color: var(--blanco);
+            font-family: var(--titulo);
+            font-size: 1.5rem;
+            cursor: pointer;
+            border: none;
+            padding: 15px;
+            transition: 0.3s ease;
+        }
+
+        .boton-formulario input[type="submit"]:hover {
+            background-color: var(--amarillo-lima);
+            color: var(--negro);
+        }
+
+        .pie-formulario {
+            text-align: center;
+            margin-top: 1.5rem;
+            font-size: 0.9rem;
+        }
+
+        .pie-formulario a {
+            color: var(--rojo-oscuro);
+            font-weight: bold;
+            text-decoration: none;
+        }
+
+        /* --- FOOTER --- */
+        .footer {
+            background-color: #111;
+            padding: 2rem;
+            margin-top: 2rem;
+        }
+
+        .footer_container {
+            max-width: 1000px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .footer_text {
+            font-size: 0.8rem;
+            line-height: 1.5;
+        }
+
+        .footer_icons {
+            display: flex;
+            gap: 15px;
+        }
+
+        .footer_icon {
+            color: var(--blanco);
+            font-size: 1.3rem;
+            transition: 0.3s;
+        }
+
+        .footer_icon:hover {
+            color: var(--amarillo-lima);
+        }
+
+        .footer_rights_text {
+            font-size: 0.7rem;
+            color: #777;
+            text-align: right;
+        }
+
+        @media (max-width: 600px) {
+            .fila { flex-direction: column; gap: 10px; }
+            .footer_container { flex-direction: column; text-align: center; }
+            .footer_rights_text { text-align: center; }
+        }
+    </style>
+</head>
+<body>
+
+<header class="encabezado">
+    <a href="index.html">
+        <img src="Imágenes/Isotipo.png" alt="Logo La Madre Del Caos">
+    </a>
+</header>
+
+<main class="contenedor-principal">
+    <div class="form__div">
+        <form action="iniciar_sesion.html">
+            <h2>CREAR CUENTA</h2>
+
+            <div class="fila">
+                <div class="campo">
+                    <input type="text" name="nombre" placeholder="Nombre" required>
+                </div>
+                <div class="campo">
+                    <input type="text" name="apellidoPaterno" placeholder="Apellido paterno" required>
+                </div>
+                <div class="campo">
+                    <input type="text" name="apellidoMaterno" placeholder="Apellido materno">
+                </div>
+            </div>
+
+            <div class="fila">
+                <div class="campo">
+                    <input type="tel" name="telefono" placeholder="Teléfono" required minlength="10">
+                </div>
+                <div class="campo">
+                    <input type="text" name="codigoPostal" placeholder="Código postal" required>
+                </div>
+            </div>
+
+            <div class="fila">
+                <div class="campo" style="flex: 2;">
+                    <input type="text" name="calle" placeholder="Calle" required>
+                </div>
+                <div class="campo">
+                    <input type="text" name="numeroExterior" placeholder="N° Ext" required>
+                </div>
+                <div class="campo">
+                    <input type="text" name="numeroInterior" placeholder="N° Int">
+                </div>
+            </div>
+
+            <div class="fila">
+                <div class="campo">
+                    <input type="email" name="correo" placeholder="Correo electrónico" required>
+                </div>
+            </div>
+
+            <div class="fila">
+                <div class="campo">
+                    <input type="password" name="contrasena" placeholder="Contraseña" minlength="8" required>
+                </div>
+                <div class="campo">
+                    <input type="password" name="confirmarContrasena" placeholder="Confirmar contraseña" minlength="8" required>
+                </div>
+            </div>
+
+            <div class="boton-formulario">
+                <input type="submit" value="CREAR CUENTA" />
+            </div>
+
+            <div class="pie-formulario">
+                ¿Ya tienes cuenta? <a href="iniciar_sesion.html">Inicia sesión aquí</a>
+            </div>
+        </form>
+    </div>
+</main>
+
+<footer class="footer">
+    <div class="footer_container">
+        <div class="footer_info">
+            <p class="footer_text"><strong>La madre del caos</strong><br>Golondrinas #116 Nezahualcóyotl</p>
+            <p class="footer_text">Teléfono: 341 439 4591</p>
+            <div class="footer_icons">
+                <a href="#" class="footer_icon" target="_blank"><i class="fa-brands fa-whatsapp"></i></a>
+                <a href="#" class="footer_icon" target="_blank"><i class="fa-brands fa-tiktok"></i></a>
+                <a href="#" class="footer_icon" target="_blank"><i class="fa-brands fa-facebook"></i></a>
+                <a href="#" class="footer_icon" target="_blank"><i class="fa-brands fa-instagram"></i></a>
+            </div>
+        </div>
+        <div class="footer_rights">
+            <p class="footer_rights_text">Todos los derechos reservados ©BitBang</p>
+            <p class="footer_rights_text">Desarrollado por Axel Salgado</p>
+        </div>
+    </div>
+</footer>
+
+</body>
+</html>

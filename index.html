@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="CSS/index.css">
+    <title>La Madre Del Caos APP WEB</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+    <!--Encabezado de la página-->
+    <header class="encabezado">
+        <div class="encabezado__video-contenedor">
+            <video autoplay muted loop playsinline class="encabezado__video">
+                <source src="video/fondo.mp4" type="video/mp4">
+            </video>
+            <div class="encabezado__capa"></div>
+        </div>
+
+        <nav class="navegacion">
+            <div class="navegacion__barra">
+                <a href="index.html" class="navegacion__logotipo">
+                    <img src="Imágenes/Isotipo.png" alt="Logo" class="navegacion__logo-img">
+                </a>
+
+                <button class="navegacion__boton" id="btn-menu">
+                    <i class="fa-solid fa-bars" id="icono-interfaz"></i>
+                </button>
+
+                <ul class="navegacion__menu" id="menu-desplegable">
+                    <li class="navegacion__item"><a href="index.html" class="navegacion__enlace">Inicio</a></li>
+                    <li class="navegacion__item"><a href="menu.html" class="navegacion__enlace">Menú</a></li>
+                    <li class="navegacion__item"><a href="ofertas.html" class="navegacion__enlace">Ofertas</a></li>
+                    <li class="navegacion__item"><a href="eventos.html" class="navegacion__enlace">Eventos</a></li>
+                    <li class="navegacion__item"><a href="ConsultarBarriles.html"
+                            class="navegacion__enlace">Barriles</a></li>
+                    <li class="navegacion__item">
+                        <a href="iniciar_sesion.html" class="navegacion__enlace navegacion__enlace--inicio">Iniciar
+                            Sesión</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+
+        <div class="hero">
+            <h1 class="hero__titulo">LA MADRE DEL CAOS</h1>
+            <p class="hero__subtitulo">Chicharrón Colombiano • El Origen del Sabor</p>
+        </div>
+    </header>
+    <!--  -->
+    <section class="galeria">
+        <h2 class="subitulo">LO MÁS VENDIDO</h2>
+
+        <h2 class="subitulo2">CORTES</h2>
+        <p class="subitulo3">Cortes de excelencia para paladares exigentes</p>
+
+        <div class="galeria__row">
+            <div class="galeria__item">
+                <a href="picaña.html" class="galeria__enlace">
+                    <img src="Imágenes/Galeria/Platillos/Cortes/picaña.jpg" alt="Picaña" class="galeria__img" style="view-transition-name: img1;">
+                    <p class="galeria__texto">PICAÑA</p>
+                    <p class="galeria__descripcion">¡Tierna, jugosa, y con grasa que se rinde al fuego!</p>
+                </a>
+            </div>
+            <div class="galeria__item">
+                <a href="chicharron.html" class="galeria__enlace">
+                    <img src="Imágenes/Galeria/Platillos/Cortes/chicharron.jpg" alt="Chicharrón" class="galeria__img">
+                    <p class="galeria__texto">CHICHARRON COLOMBIANO</p>
+                    <p class="galeria__descripcion">¡Crujiente, dorado y con alma sabrosa!</p>
+                </a>
+            </div>
+            <div class="galeria__item">
+                <a href="costilla.html" class="galeria__enlace">
+                    <img src="Imágenes/Galeria/Platillos/Cortes/costilla.jpg" alt="Costilla" class="galeria__img">
+                    <p class="galeria__texto">COSTILLA</p>
+                    <p class="galeria__descripcion">Suave, caramelizada y pegada el hueso como debe ser.</p>
+                </a>
+            </div>
+            <div class="galeria__item">
+                <a href="asada.html" class="galeria__enlace">
+                    <img src="Imágenes/Galeria/Platillos/Cortes/asada.jpg" alt="Carne Asada" class="galeria__img">
+                    <p class="galeria__texto">CARNE ASADA</p>
+                    <p class="galeria__descripcion">Clásica, sazonada y al punto.</p>
+                </a>
+            </div>
+        </div>
+
+        <h2 class="subitulo2">TACOS</h2>
+        <p class="subitulo3">Los tacos que conquistan desde el primer mordisco</p>
+
+        <div class="galeria__row">
+            <div class="galeria__item">
+                <a href="tacodechicharron.html" class="galeria__enlace">
+                    <img src="Imágenes/Galeria/Platillos/Tacos/tacosdechicharron.jpg" alt="Taco Chicharrón"
+                        class="galeria__img">
+                    <p class="galeria__texto">TACO CHICHARRON</p>
+                    <p class="galeria__descripcion">El mejor taco de chicharrón estilo colombiano.</p>
+                </a>
+            </div>
+            <div class="galeria__item">
+                <a href="tacodeasada.html" class="galeria__enlace">
+                    <img src="Imágenes/Galeria/Platillos/Tacos/tacosdeasada.jpg" alt="Taco Asada" class="galeria__img">
+                    <p class="galeria__texto">CARNE ASADA</p>
+                    <p class="galeria__descripcion">Un taco de la carne más jugosa de Neza.</p>
+                </a>
+            </div>
+            <div class="galeria__item">
+                <a href="tacodeobispo.html" class="galeria__enlace">
+                    <img src="Imágenes/Galeria/Platillos/Tacos/tacosdeobispo.jpg" alt="Taco Obispo"
+                        class="galeria__img">
+                    <p class="galeria__texto">OBISPO</p>
+                    <p class="galeria__descripcion">Un taco que te hará recordar los mejores sabores.</p>
+                </a>
+            </div>
+            <div class="galeria__item">
+                <a href="tacodechorizo.html" class="galeria__enlace">
+                    <img src="Imágenes/Galeria/Platillos/Tacos/tacosdechorizo.jpg" alt="Taco Chorizo"
+                        class="galeria__img">
+                    <p class="galeria__texto">CHORIZO TIPO ESPAÑOL</p>
+                    <p class="galeria__descripcion">Un taco de chorizo que nunca olvidarás.</p>
+                </a>
+            </div>
+        </div>
+    </section>
+    <section class="galeria" style="background-color: white;display: flex; justify-content: center; flex-direction: column; align-items: center;">
+        <h2 class="subitulo">Nos ubicamos en</h2>
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3763.0705109313653!2d-99.02310502474131!3d19.40935918186507!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x85d1e3ab9b55c8e1%3A0xddc9a5c378f42221!2sLa%20Madre%20Del%20Caos--Asados%20Al%20Barril!5e0!3m2!1ses-419!2smx!4v1773030010265!5m2!1ses-419!2smx" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+    <div class="footer__container">
+        <div class="footer__info">
+            <h3 class="footer__brand">La madre del caos</h3>
+            <p class="footer__text">Golondrinas #116 Nezahualcóyotl</p>
+            <p class="footer__text">Teléfono: 341 439 4591</p>
+            
+            <div class="footer__icons">
+                <a href="#" class="footer_icon" target="_blank"><i class="fa-brands fa-whatsapp"></i></a>
+                <a href="#" class="footer_icon" target="_blank"><i class="fa-brands fa-tiktok"></i></a>
+                <a href="#" class="footer_icon" target="_blank"><i class="fa-brands fa-facebook"></i></a>
+                <a href="#" class="footer_icon" target="_blank"><i class="fa-brands fa-instagram"></i></a>
+            </div>
+        </div>
+
+        <div class="footer__rights">
+            <p class="footer__rights-text">Todos los derechos reservados ©BitBang</p>
+        </div>
+    </div>
+</footer>
+    
+    <script src="js/menu.js"></script>
+</body>
+
+</html>

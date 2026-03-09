@@ -1,0 +1,17 @@
+INSTRUCCIONES TÉCNICAS DE USO DEL PROTOTIPO WEB
+
+En la carpeta denominada vista, se encuentran 79 archivos HTML que componen la interfaz del prototipo. Para acceder al sitio web, abra el archivo principal llamado index.html mediante un navegador web compatible.
+
+El sistema permite navegación libre a través del menú principal, incluyendo sus respectivas categorías, subcategorías, detalles individuales de productos, eventos especiales y la sección de asadores de barril, sin requerir autenticación previa.
+
+Para acceder a funcionalidades personalizadas, el usuario puede iniciar sesión mediante el formulario habilitado, ingresando una dirección de correo electrónico válida (que contenga formato estándar: ejemplo@dominio.com) y cualquier valor alfanumérico como contraseña. De igual forma, la opción "Crear cuenta" solicita el llenado completo de los campos requeridos por el formulario, impidiendo el envío de información vacía.
+
+Una vez iniciada la sesión correctamente, el sistema cargará el perfil funcional correspondiente al usuario Dareck Emmanuel Fernandez Suárez. Dentro del entorno autenticado, el usuario podrá:
+
+Acceder a la sección "Mis pedidos", donde se muestran los pedidos previamente registrados en formato de lista.
+
+Ingresar a la sección "Mi perfil", donde se habilita la edición de información personal (nombre, correo, dirección, etc.) utilizando campos previamente cargados con la información almacenada.
+
+Al mantener la sesión iniciada, se agregarán las opciones "pedidos", "mi perfil" y "cerrar sesión" de forma permanente a la barra de navegación principal.
+
+Al seleccionar la opción "Cerrar sesión", el sistema realiza una limpieza de sesión activa y redirige automáticamente al usuario a la pantalla de inicio de sesión, deshabilitando temporalmente el acceso a funciones restringidas hasta que se autentique nuevamente.

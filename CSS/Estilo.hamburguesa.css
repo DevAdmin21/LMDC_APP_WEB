@@ -1,0 +1,258 @@
+@view-transition{
+    navigation: auto;
+}
+:root {
+    --blanco: #FFFFFF;
+    --negro: #000000;
+    --amarillo-lima: rgb(234, 241, 88);
+    --rojo-oscuro: #821717;
+    --gris-borde: #e1e1e1;
+    --titulo: 'Bebas Neue';
+    --texto: 'Open Sans', sans-serif;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var(--texto);
+    background: var(--blanco); /* Fondo blanco para la sección de detalle */
+    color: var(--negro);
+    overflow-x: hidden;
+}
+
+/* --- NAVEGACIÓN --- */
+.navegacion {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+    background: rgba(0, 0, 0, 0.9);
+    backdrop-filter: blur(12px);
+}
+
+.navegacion__barra {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 5%;
+    max-width: 1400px;
+    margin: auto;
+    height: 80px;
+}
+
+.navegacion__logo-img {
+    height: 50px;
+    filter: brightness(0) invert(1);
+}
+
+.navegacion__boton {
+    background: none;
+    border: none;
+    color: var(--blanco);
+    font-size: 1.8rem;
+    cursor: pointer;
+    display: none; /* Se activa en media query */
+    z-index: 2000;
+}
+
+.navegacion__menu {
+    display: flex;
+    align-items: center;
+    list-style: none;
+    gap: 1.5rem;
+}
+
+.navegacion__enlace {
+    color: var(--blanco);
+    text-decoration: none;
+    font-family: var(--titulo);
+    font-size: 1.1rem;
+    letter-spacing: 1px;
+    transition: 0.3s;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.navegacion__enlace:hover {
+    color: var(--amarillo-lima);
+}
+
+.navegacion__enlace--inicio {
+    border: 1px solid var(--amarillo-lima);
+    padding: 5px 15px;
+    color: var(--amarillo-lima) !important;
+    border-radius: 4px;
+}
+
+/* --- SECCIÓN DETALLE --- */
+.seccion-detalle {
+    padding-top: 80px;
+}
+
+.navegacion-secundaria {
+    background-color: #f4f4f4;
+    padding: 15px 0;
+}
+
+.nav-secundaria {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    flex-wrap: wrap;
+}
+
+.nav-secundaria__item {
+    text-decoration: none;
+    color: #333;
+    font-family: var(--titulo);
+    font-size: 1.2rem;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.nav-secundaria__item.activo {
+    color: var(--rojo-oscuro);
+    border-bottom: 2px solid var(--rojo-oscuro);
+}
+
+/* --- FILA RESPONSIVE --- */
+.fila {
+    display: flex;
+    flex-wrap: wrap;
+    max-width: 1200px;
+    margin: 3rem auto;
+    gap: 40px;
+    padding: 0 5%;
+    align-items: center;
+}
+
+.columna {
+    flex: 1;
+    min-width: 300px;
+}
+
+.platillo-img-principal {
+    width: 100%;
+    border-radius: 15px;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+}
+
+.titulo-comida {
+    font-family: var(--titulo);
+    font-size: 3.5rem;
+    line-height: 1;
+    margin-bottom: 1rem;
+}
+
+.texto {
+    font-size: 1rem;
+    line-height: 1.6;
+    color: #444;
+    margin-bottom: 10px;
+}
+
+.precio-comida {
+    font-family: var(--titulo);
+    font-size: 2.5rem;
+    color: var(--rojo-oscuro);
+    margin: 1.5rem 0;
+}
+
+.boton-comprar {
+    background-color: var(--negro);
+    color: var(--blanco);
+    padding: 12px 40px;
+    font-family: var(--titulo);
+    font-size: 1.4rem;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.boton-comprar:hover {
+    background-color: var(--amarillo-lima);
+    color: var(--negro);
+}
+
+/* --- FOOTER --- */
+.footer {
+    background-color: var(--negro);
+    color: var(--blanco);
+    padding: 3rem 5%;
+    margin-top: 4rem;
+}
+
+.footer_container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 2rem;
+}
+
+.footer_text strong {
+    font-family: var(--titulo);
+    font-size: 1.5rem;
+    color: var(--amarillo-lima);
+}
+
+.footer_icons {
+    display: flex;
+    gap: 15px;
+    margin-top: 10px;
+}
+
+.footer_icon {
+    color: var(--blanco);
+    font-size: 1.5rem;
+    transition: 0.3s;
+}
+
+.footer_icon:hover { color: var(--amarillo-lima); }
+
+/* --- MEDIA QUERIES --- */
+@media (max-width: 950px) {
+    .navegacion__boton { display: block; }
+
+    .navegacion__menu {
+        position: fixed;
+        top: 0;
+        left: 100%;
+        width: 100%;
+        height: 100vh;
+        background: var(--negro);
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 1.5rem;
+        transition: 0.4s ease-in-out;
+    }
+
+    .navegacion__menu--activo { left: 0; }
+
+    /* Tamaño de letra corregido para que no sea gigante */
+    .navegacion__enlace { font-size: 1.5rem; } 
+    
+    .fila {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .titulo-comida { font-size: 2.5rem; }
+}
+
+@media (max-width: 600px) {
+    .footer_container {
+        flex-direction: column;
+        text-align: center;
+    }
+}

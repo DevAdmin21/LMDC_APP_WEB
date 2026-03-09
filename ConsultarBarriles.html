@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="CSS/estilo_index.css">
+    <title>Menú | La Madre Del Caos</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+    <header class="encabezado">
+        <nav class="navegacion">
+            <div class="navegacion__barra">
+                <a href="index.html" class="navegacion__logotipo">
+                    <img src="Imágenes/Isotipo.png" alt="Logo" class="navegacion__logo-img">
+                </a>
+
+                <button class="navegacion__boton" id="btn-menu">
+                    <i class="fa-solid fa-bars" id="icono-interfaz"></i>
+                </button>
+
+                <ul class="navegacion__menu" id="menu-desplegable">
+                    <li class="navegacion__item"><a href="index.html" class="navegacion__enlace">Inicio</a></li>
+                    <li class="navegacion__item"><a href="menu.html" class="navegacion__enlace">Menú</a></li>
+                    <li class="navegacion__item"><a href="ofertas.html" class="navegacion__enlace">Ofertas</a></li>
+                    <li class="navegacion__item"><a href="eventos.html" class="navegacion__enlace">Eventos</a></li>
+                    <li class="navegacion__item"><a href="ConsultarBarriles.html"
+                            class="navegacion__enlace">Barriles</a></li>
+                    <li class="navegacion__item">
+                        <a href="iniciar_sesion.html" class="navegacion__enlace navegacion__enlace--inicio">Iniciar
+                            Sesión</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+    <div class="galeria">
+        <h2 class="subitulo">Los mejores Barriles</h2>
+        <p class="galeria__descripcion">Para tus mejores Asados...</p>
+        <div class="galeria__row">
+            <div class="galeria__item">
+                <a href="BarrilJupiter.html" class="galeria__enlace">
+                    <img src="Imágenes/Barriles/GIGANT1.png" alt="Consumibles" class="galeria__img">
+                    <p class="galeria__texto">Barril Jupiter</p>
+                    <p class="galeria__descripcion">$1,379.900</p>
+                </a>
+            </div>
+            <div class="galeria__item">
+                <a href="BarrilOlympus.html" class="galeria__enlace">
+                    <img src="Imágenes/Barriles/GRAND.png" alt="Bebidas" class="galeria__img">
+                    <p class="galeria__texto">Barril Olympus</p>
+                    <p class="galeria__descripcion">$1,099.900</p>
+                </a>
+            </div>
+            <div class="galeria__item">
+                <a href="BarrilMarte.html" class="galeria__enlace">
+                    <img src="Imágenes/Barriles/MEDIAN.png" alt="Extras" class="galeria__img">
+                    <p class="galeria__texto">Barril Marte</p>
+                    <p class="galeria__descripcion">$819.900</p>
+                </a>
+            </div>
+            <div class="galeria__item">
+                <a href="BarrilMercury.html" class="galeria__enlace">
+                    <img src="Imágenes/Barriles/PQÑO.png" alt="Extras" class="galeria__img">
+                    <p class="galeria__texto">Barril Mercury</p>
+                    <p class="galeria__descripcion">$679.900</p>
+                </a>
+            </div>
+        </div>
+    </div>
+    <footer class="footer">
+        <div class="footer__container">
+            <div class="footer__info">
+                <h3 class="footer__brand">La madre del caos</h3>
+                <p class="footer__text">Golondrinas #116 Nezahualcóyotl</p>
+                <p class="footer__text">Teléfono: 341 439 4591</p>
+
+                <div class="footer__icons">
+                    <a href="#" class="footer_icon" target="_blank"><i class="fa-brands fa-whatsapp"></i></a>
+                    <a href="#" class="footer_icon" target="_blank"><i class="fa-brands fa-tiktok"></i></a>
+                    <a href="#" class="footer_icon" target="_blank"><i class="fa-brands fa-facebook"></i></a>
+                    <a href="#" class="footer_icon" target="_blank"><i class="fa-brands fa-instagram"></i></a>
+                </div>
+            </div>
+
+            <div class="footer__rights">
+                <p class="footer__rights-text">Todos los derechos reservados ©BitBang</p>
+            </div>
+        </div>
+    </footer>
+    <script src="js/menu.js"></script>
+</body>
+
+</html>

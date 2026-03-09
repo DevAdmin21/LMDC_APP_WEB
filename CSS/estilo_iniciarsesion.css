@@ -1,0 +1,190 @@
+@view-transition{
+    navigation: auto;
+}
+:root {
+    --blanco: #FFFFFF;
+    --negro: #000000;
+    --amarillo-lima: rgb(234, 241, 88);
+    --gris-borde: #e1e1e1;
+    --titulo: 'Bebas Neue';
+    --texto: 'Open Sans', sans-serif;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var(--texto);
+    background-color: var(--negro); /* Fondo oscuro para que sea elegante */
+    color: var(--blanco);
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+/* --- HEADER --- */
+.encabezado {
+    text-align: center;
+    padding: 3rem 1rem;
+}
+
+.encabezado img {
+    height: 100px;
+    margin-bottom: 10px;
+}
+
+.encabezado h1 {
+    font-family: var(--titulo);
+    color: var(--amarillo-lima);
+    font-size: 3rem;
+    letter-spacing: 2px;
+}
+
+/* --- CONTENEDOR LOGIN --- */
+.contenedor {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem;
+}
+
+.login-form {
+    background-color: var(--blanco);
+    padding: 40px;
+    border-radius: 12px;
+    width: 100%;
+    max-width: 400px;
+    text-align: center;
+    box-shadow: 0 15px 35px rgba(0,0,0,0.5);
+}
+
+.login-form h2 {
+    font-family: var(--titulo);
+    color: var(--negro);
+    font-size: 2.5rem;
+    margin-bottom: 30px;
+}
+
+.input-group {
+    margin-bottom: 20px;
+}
+
+.login-form input {
+    width: 100%;
+    padding: 15px;
+    border: 1px solid var(--gris-borde);
+    border-radius: 6px;
+    font-family: var(--texto);
+    font-size: 1rem;
+    outline: none;
+    transition: border-color 0.3s;
+}
+
+.login-form input:focus {
+    border-color: var(--negro);
+}
+
+.login-form button {
+    width: 100%;
+    padding: 15px;
+    background-color: var(--negro);
+    color: var(--blanco);
+    font-family: var(--titulo);
+    font-size: 1.5rem;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background 0.3s;
+    text-transform: uppercase;
+}
+
+.login-form button:hover {
+    background-color: var(--amarillo-lima);
+    color: var(--negro);
+}
+
+.login-form h3 {
+    margin-top: 25px;
+    color: #666;
+    font-size: 0.9rem;
+}
+
+.login-form h3 a {
+    color: var(--negro);
+    font-weight: bold;
+    text-decoration: none;
+    border-bottom: 2px solid var(--amarillo-lima);
+}
+
+/* --- FOOTER (El que conoces) --- */
+.footer {
+    background-color: #0c0c0c;
+    color: var(--blanco);
+    padding: 3rem 2rem;
+    margin-top: auto;
+}
+
+.footer__container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 2rem;
+}
+
+.footer__brand {
+    font-family: var(--titulo);
+    font-size: 2rem;
+    color: var(--amarillo-lima);
+    margin-bottom: 1rem;
+}
+
+.footer__text {
+    font-size: 0.9rem;
+    line-height: 1.6;
+    margin-bottom: 0.5rem;
+}
+
+.footer__icons {
+    display: flex;
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+.footer_icon {
+    color: var(--blanco);
+    font-size: 1.5rem;
+    transition: 0.3s;
+}
+
+.footer_icon:hover {
+    color: var(--amarillo-lima);
+}
+
+.footer__rights {
+    text-align: right;
+}
+
+.footer__rights-text {
+    font-size: 0.8rem;
+    color: #888;
+}
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+    .footer__container {
+        flex-direction: column;
+        text-align: center;
+    }
+    .footer__icons {
+        justify-content: center;
+    }
+    .footer__rights {
+        text-align: center;
+    }
+}

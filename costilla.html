@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="CSS/Estilo.hamburguesa.css">
+    <title>Costilla | La Madre Del Caos</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <header class="navegacion">
+        <div class="navegacion__barra">
+            <a href="index.html" class="navegacion__logotipo">
+                <img src="Imágenes/Isotipo.png" alt="Logo La Madre Del Caos" class="navegacion__logo-img">
+            </a>
+
+            <button class="navegacion__boton" id="btn-menu">
+                <i class="fa-solid fa-bars" id="icono-interfaz"></i>
+            </button>
+
+            <ul class="navegacion__menu" id="menu-desplegable">
+                <li class="navegacion__item"><a href="index.html" class="navegacion__enlace">Inicio</a></li>
+                <li class="navegacion__item"><a href="menu.html" class="navegacion__enlace">Menú</a></li>
+                <li class="navegacion__item"><a href="ofertas.html" class="navegacion__enlace">Ofertas</a></li>
+                <li class="navegacion__item"><a href="eventos.html" class="navegacion__enlace">Eventos</a></li>
+                <li class="navegacion__item"><a href="ConsultarBarriles.html" class="navegacion__enlace">Barriles</a></li>
+                <li class="navegacion__item">
+                    <a href="Usuarios/iniciar_sesion.html" class="navegacion__enlace navegacion__enlace--inicio">Iniciar Sesión</a>
+                </li>
+            </ul>
+        </div>
+    </header>
+
+    <div style="height: 80px;"></div>
+
+    <div class="navegacion-secundaria">
+        <nav class="nav-secundaria" style="display: flex; justify-content: center; gap: 20px; padding: 15px;">
+            <a href="menu.html" class="nav-secundaria__item activo">
+                <i class="fa-solid fa-utensils"></i> Menú
+            </a>
+            <a href="categoria_consumibles.html" class="nav-secundaria__item activo">
+                <i class="fa-solid fa-utensils"></i> Platillos
+            </a>
+            <a href="categoria_bebidas.html" class="nav-secundaria__item">
+                <i class="fa-solid fa-glass-water"></i> Bebidas
+            </a>
+            <a href="categoria_extras.html" class="nav-secundaria__item">
+                <i class="fa-solid fa-plus"></i> Extras
+            </a>
+        </nav>
+    </div>
+
+    <main class="fila" style="display: flex; flex-wrap: wrap; justify-content: center; align-items: center; padding: 40px 20px; gap: 40px;">
+        
+        <div class="columna" style="display: flex; justify-content: center;">
+            <img src="Imágenes/Galeria/Platillos/Cortes/costilla.jpg" alt="Costilla" class="galeria__img" style="width: 100%; max-width: 400px; border-radius: 15px; display: block; margin: 0 auto;">
+        </div>
+
+        <div class="columna" style="max-width: 500px; text-align: center;">
+            <p class="titulo" style="font-family: 'Bebas Neue'; font-size: 3rem; margin-bottom: 10px;">COSTILLA</p>
+            <div style="margin-bottom: 20px;">
+                <p class="texto">Tierna, sabrosa y con ese toque ahumado irresistible.</p>
+                <p class="texto">Nuestras costillas son marinadas y cocidas lentamente hasta que la carne se separa del hueso.</p>
+                <p class="texto">Glaseadas con salsas artesanales que realzan su sabor natural.</p>
+                <p class="texto">Perfectas para compartir (aunque querrás quedártelas todas).</p>
+                <p class="texto">Un clásico infalible para los verdaderos carnívoros.</p>
+            </div>
+            <p class="precio" style="font-size: 1.8rem; font-weight: bold; color: #821717; margin-bottom: 20px;">Precio: $490</p>
+
+            <div>
+                <button class="boton-comprar">
+                    Comprar
+                </button>
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="footer_container">
+            <div class="footer_info">
+                <p class="footer_text"><strong>La madre del caos</strong><br>Golondrinas #116 Nezahualcóyotl</p>
+                <p class="footer_text">Teléfono: 341 439 4591</p>
+                <div class="footer_icons">
+                    <a href="https://api.whatsapp.com/send?phone=5213414394592" class="footer_icon" target="_blank">
+                        <i class="fa-brands fa-whatsapp"></i>
+                    </a>
+                    <a href="https://www.tiktok.com/@lamadredelcaos" class="footer_icon" target="_blank">
+                        <i class="fa-brands fa-tiktok"></i>
+                    </a>
+                    <a href="https://www.facebook.com/jclamadredelcaosasadosalbarril" class="footer_icon" target="_blank">
+                        <i class="fa-brands fa-facebook"></i>
+                    </a>
+                    <a href="https://www.instagram.com/lamadredelcaosasadosalbarril/" class="footer_icon" target="_blank">
+                        <i class="fa-brands fa-instagram"></i>
+                    </a>
+                </div>
+            </div>
+            <div class="footer_rights">
+                <p class="footer_rights_text">Todos los derechos reservados ©BitBang</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/menu.js"></script>
+</body>
+
+</html>

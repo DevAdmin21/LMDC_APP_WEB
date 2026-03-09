@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eventos</title>
+    <link rel="stylesheet" href="CSS/estilo_ofertas.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+    <!--Encabezado de la página-->
+    <header class="navegacion">
+        <div class="navegacion__barra">
+            <a href="index.html">
+                <img src="Imágenes/Isotipo.png" alt="Logo La Madre Del Caos" class="navegacion__logo-img">
+            </a>
+
+            <button id="btn-menu" class="navegacion__boton">
+                <i id="icono-interfaz" class="fa-solid fa-bars"></i>
+            </button>
+
+            <nav id="menu-desplegable" class="navegacion__menu">
+                <a href="index_sesion.html" class="navegacion__enlace">Inicio</a>
+                <a href="menu_sesion.html" class="navegacion__enlace">Menú</a>
+                <a href="ofertas_sesion.html" class="navegacion__enlace">Ofertas</a>
+                <a href="eventos_sesion.html" class="navegacion__enlace">
+                    Eventos</a>
+                <a href="ConsultarBarriles_sesion.html" class="navegacion__enlace">
+                    Barriles</a>
+                <a href="mispedidos.html" class="navegacion__enlace">Pedidos</a>
+                <a href="Editar_Perfil.html" class="navegacion__enlace">Perfil</a>
+                <a href="iniciar_sesion.html" class="navegacion__enlace navegacion__enlace--inicio">Cerrar Sesión</a>
+            </nav>
+        </div>
+    </header>
+    <div class="Banner">
+        <img src="Imágenes/Eventos/bannerEventos.png" alt="Banner" class="banner-img">
+    </div>
+
+    <div class="galeria">
+        <h2 class="subitulo">Eventos</h2>
+        <p class="subitulo3">Experiencias que desatan el caos… y el buen gusto</p>
+
+        <div class="galeria__row">
+            
+            <div class="galeria__item">
+                <img src="Imágenes/Eventos/1.jpg" alt="Taller el rey del asado" class="galeria__img">
+                <div class="galeria__enlace">
+                    <h3 class="galeria__texto">Taller el rey del asado</h3>
+                    <p class="galeria__descripcion">Fuego, humo y sazón para formar reyes del asado.</p>
+                    <button class="navegacion__enlace--boton" style="cursor:pointer; margin-top:15px; width: 100%; border-radius: 5px;" 
+                            onclick="abrirModal('Taller el Rey del Asado', 'Un taller único donde el fuego, el humo y el sazón se juntan para formar reyes del asado.', '12 de julio, 2025', 'Parrilla Central, CDMX')">
+                        Ver más
+                    </button>
+                </div>
+            </div>
+
+            <div class="galeria__item">
+                <img src="Imágenes/Eventos/2.jpg" alt="Festival del asado" class="galeria__img">
+                <div class="galeria__enlace">
+                    <h3 class="galeria__texto">Festival del asado</h3>
+                    <p class="galeria__descripcion">Asadores, música en vivo y sabores extremos.</p>
+                    <button class="navegacion__enlace--boton" style="cursor:pointer; margin-top:15px; width: 100%; border-radius: 5px;"
+                            onclick="abrirModal('Festival del Asado', 'Una experiencia para amantes de la carne: asadores, música en vivo y sabores extremos.', '20 de julio, 2025', 'Parque del Sabor, Guadalajara')">
+                        Ver más
+                    </button>
+                </div>
+            </div>
+
+            <div class="galeria__item">
+                <img src="Imágenes/Eventos/3.jpeg" alt="Taco fest del caos" class="galeria__img">
+                <div class="galeria__enlace">
+                    <h3 class="galeria__texto">Taco fest del caos</h3>
+                    <p class="galeria__descripcion">Tacos sin control y salsas infernales.</p>
+                    <button class="navegacion__enlace--boton" style="cursor:pointer; margin-top:15px; width: 100%; border-radius: 5px;"
+                            onclick="abrirModal('Taco Fest del Caos', 'Tacos sin control, salsas infernales y un ambiente donde el caos se convierte en sabor.', '5 de agosto, 2025', 'Plaza del Fuego, Monterrey')">
+                        Ver más
+                    </button>
+                </div>
+            </div>
+
+            <div class="galeria__item">
+                <img src="Imágenes/Eventos/4.jpg" alt="Tacos, luces y caos" class="galeria__img">
+                <div class="galeria__enlace">
+                    <h3 class="galeria__texto">Tacos, luces y caos</h3>
+                    <p class="galeria__descripcion">Noche de tacos, música y ambiente para reventar el antojo.</p>
+                    <button class="navegacion__enlace--boton" style="cursor:pointer; margin-top:15px; width: 100%; border-radius: 5px;"
+                            onclick="abrirModal('Tacos, Luces y Caos', 'Un evento nocturno con tacos, música, luces y mucho ambiente para reventar el antojo.', '10 de agosto, 2025', 'Terraza del Caos, Puebla')">
+                        Ver más
+                    </button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <div id="modal-eventos" class="modal-bg">
+        <div class="modal-container">
+            <span class="modal-cerrar" onclick="cerrarModal()">&times;</span>
+            <h2 id="modal-titulo" class="subitulo" style="color: var(--negro); font-size: 2.5rem;"></h2>
+            <hr style="margin: 15px 0; border: 0; border-top: 1px solid var(--gris-borde);">
+            <p id="modal-descripcion" class="galeria__descripcion" style="text-align: center; color: var(--negro); font-size: 1.1rem; margin-bottom: 20px;"></p>
+            <div style="background: #f9f9f9; padding: 15px; border-radius: 10px; text-align: left;">
+                <p class="galeria__descripcion" style="margin-bottom: 5px;"><strong><i class="fa-regular fa-calendar"></i> Fecha:</strong> <span id="modal-fecha"></span></p>
+                <p class="galeria__descripcion"><strong><i class="fa-solid fa-location-dot"></i> Lugar:</strong> <span id="modal-lugar"></span></p>
+            </div>
+        </div>
+    </div>
+    <footer class="footer">
+        <div class="footer__container">
+            <div class="footer__info">
+                <h3 class="footer__brand">La madre del caos</h3>
+                <p class="footer__text">Golondrinas #116 Nezahualcóyotl</p>
+                <p class="footer__text">Teléfono: 341 439 4591</p>
+
+                <div class="footer__icons">
+                    <a href="#" class="footer_icon" target="_blank"><i class="fa-brands fa-whatsapp"></i></a>
+                    <a href="#" class="footer_icon" target="_blank"><i class="fa-brands fa-tiktok"></i></a>
+                    <a href="#" class="footer_icon" target="_blank"><i class="fa-brands fa-facebook"></i></a>
+                    <a href="#" class="footer_icon" target="_blank"><i class="fa-brands fa-instagram"></i></a>
+                </div>
+            </div>
+
+            <div class="footer__rights">
+                <p class="footer__rights-text">Todos los derechos reservados ©BitBang</p>
+            </div>
+        </div>
+    </footer>
+</body>
+<script>
+    const modal = document.getElementById('modal-eventos');
+    const mTitulo = document.getElementById('modal-titulo');
+    const mDesc = document.getElementById('modal-descripcion');
+    const mFecha = document.getElementById('modal-fecha');
+    const mLugar = document.getElementById('modal-lugar');
+
+    function abrirModal(titulo, descripcion, fecha, lugar) {
+        mTitulo.innerText = titulo;
+        mDesc.innerText = descripcion;
+        mFecha.innerText = fecha;
+        mLugar.innerText = lugar;
+        
+        modal.style.display = 'flex';
+        document.body.style.overflow = 'hidden'; // Bloquea scroll
+    }
+
+    function cerrarModal() {
+        modal.style.display = 'none';
+        document.body.style.overflow = 'auto'; // Habilita scroll
+    }
+
+    // Cerrar al hacer clic fuera del contenido
+    window.onclick = function(event) {
+        if (event.target == modal) {
+            cerrarModal();
+        }
+    }
+</script>
+<script src="js/menu.js"></script>
+
+</html>

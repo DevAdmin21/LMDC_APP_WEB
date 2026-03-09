@@ -1,0 +1,453 @@
+/* VARIABLES */
+:root {
+  --negroClaro: #212121;
+  --texto: "Open Sans", sans-serif;
+  --titulo: "Bebas Neue", sans-serif;
+  --rojo-principal: #821717;
+  --amarillo-principal: #eaf158;
+}
+
+/* ESTILOS GENERALES */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #ffffff;
+  font-family: var(--texto);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* ENCABEZADO */
+.encabezado {
+  width: 100%;
+  overflow: hidden;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  min-height: 160px;
+  position: relative;
+}
+
+.encabezado img {
+  float: left;
+  width: 130px;
+  margin: 5px 0 0 5px;
+}
+
+.encabezado h1 {
+  position: absolute;
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  margin: 0;
+  color: #000000;
+  text-shadow: var(--amarillo-principal) 2px 2px 8px;
+  font-family: var(--titulo);
+  font-size: 90px;
+  white-space: nowrap;
+  text-align: center;
+  line-height: 1.2;
+  text-decoration: none;
+  max-width: calc(100% - 120px);
+}
+
+/* NAVEGACIÓN PRINCIPAL */
+.encabezado nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: var(--rojo-principal);
+  width: 100%;
+  padding: 23px 40px;
+  box-sizing: border-box;
+  height: 50px;
+}
+
+nav a {
+  font-family: var(--texto);
+  padding: 8px 12px;
+  color: var(--amarillo-principal);
+  text-decoration: none;
+  font-size: 22px;
+  letter-spacing: 0.5px;
+  text-align: center;
+  border-radius: 15px;
+  transition: all 0.3s ease;
+}
+
+nav a:hover {
+  background: var(--amarillo-principal);
+  color: var(--rojo-principal);
+  transform: translateY(-1px);
+}
+
+/* BOTÓN CERRAR SESIÓN */
+.login {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.login button {
+  padding: 8px 16px;
+  background: var(--amarillo-principal);
+  color: var(--rojo-principal);
+  border: 1px solid var(--amarillo-principal);
+  border-radius: 12px;
+  font-size: 14px;
+  font-family: var(--texto);
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.login button:hover {
+  background: var(--rojo-principal);
+  color: var(--amarillo-principal);
+  border-color: var(--rojo-principal);
+}
+
+.login button i {
+  margin-right: 5px;
+}
+
+.perfil-foto {
+    width: 20%;
+    height: 20%;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid #eaf158;
+    margin-right: 15px;
+}
+
+.bienvenida {
+    display: flex;
+    align-items: center;
+}
+
+.bienvenida-texto {
+    flex: 1;
+}
+/* CONTENEDOR PRINCIPAL DE USUARIO */
+.usuario-container {
+  flex: 1;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 40px 20px;
+  width: 100%;
+}
+
+/* SECCIÓN BIENVENIDA */
+.bienvenida {
+  text-align: center;
+  margin-bottom: 40px;
+  padding: 30px;
+  background: #821717;
+  border-radius: 15px;
+  border-left: 4px solid var(--rojo-principal);
+}
+
+.bienvenida h2 {
+  font-family: var(--titulo);
+  font-size: 42px;
+  color: #eaf158;
+  margin-bottom: 15px;
+}
+
+.bienvenida h2 i {
+  color: var(--amarillo-principal);
+  margin-right: 10px;
+}
+
+.bienvenida p {
+  font-size: 18px;
+  color: #ffffff;
+  margin: 0;
+  line-height: 1.6;
+}
+
+/* MENÚ DE OPCIONES */
+.menu-opciones {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 25px;
+  margin-top: 40px;
+}
+
+.opcion-card {
+  background: #c4bfbf48;
+  padding: 25px;
+  border-radius: 15px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+  border: 2px solid transparent;
+}
+
+.opcion-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+  border-color: var(--amarillo-principal);
+}
+
+.opcion-card h3 {
+  font-family: var(--titulo);
+  font-size: 26px;
+  color: var(--rojo-principal);
+  margin-bottom: 15px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.opcion-card h3 i {
+  color: var(--rojo-principal);
+  font-size: 22px;
+}
+
+.opcion-card p {
+  color: #666;
+  font-size: 16px;
+  line-height: 1.6;
+  margin-bottom: 20px;
+}
+
+.btn-opcion {
+  width: 100%;
+  padding: 12px 20px;
+  background: var(--rojo-principal);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  font-family: var(--texto);
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.btn-opcion:hover {
+  background: #a31d1d;
+  transform: translateY(-2px);
+}
+
+/* FOOTER */
+.footer {
+  background-color: #eaf158;
+  color: rgb(0, 0, 0);
+  padding: 40px 0 20px;
+  font-family: var(--texto);
+}
+
+.footer_container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.footer_info {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.footer_text {
+  margin: 0;
+  font-size: 16px;
+  line-height: 1.5;
+}
+
+.footer_text strong {
+  font-weight: bold;
+  font-size: 18px;
+}
+
+.footer_icons {
+  display: flex;
+  gap: 15px;
+  margin-top: 10px;
+}
+
+.footer_icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  background-color: rgba(3, 3, 3, 0.342);
+  border-radius: 50%;
+  color: rgb(0, 0, 0);
+  text-decoration: none;
+  transition: all 0.3s ease;
+  filter: brightness(0.9);
+}
+
+.footer_icon:hover {
+  background-color: rgba(0, 0, 0, 0.2);
+  transform: scale(1.2) rotate(5deg);
+  filter: brightness(1.2);
+}
+
+.footer_icon i {
+  font-size: 18px;
+}
+
+.footer_rights {
+  border-top: 1px solid rgba(255, 255, 255, 0.2);
+  padding-top: 10px;
+  text-align: center;
+  opacity: 0.8;
+  font-size: 16px;
+}
+
+.footer_rights_text {
+  margin: 0;
+  font-size: 16px;
+  color: rgba(0, 0, 0, 0.8);
+}
+
+/* Colores específicos para cada red social */
+.fa-facebook:hover {
+  color: #1877f2;
+}
+
+.fa-instagram:hover {
+  color: #e4405f;
+}
+
+.fa-tiktok:hover {
+  color: #000000;
+}
+
+.fa-whatsapp:hover {
+  color: #25d366;
+}
+
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+  .encabezado h1 {
+    font-size: 60px;
+  }
+  
+  .encabezado nav {
+    padding: 20px 25px;
+    flex-wrap: wrap;
+    gap: 10px;
+    height: auto;
+  }
+  
+  nav a {
+    font-size: 18px;
+    padding: 6px 10px;
+  }
+  
+  .usuario-container {
+    padding: 30px 15px;
+  }
+  
+  .bienvenida {
+    padding: 25px 20px;
+  }
+  
+  .bienvenida h2 {
+    font-size: 32px;
+  }
+  
+  .menu-opciones {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+  
+  .opcion-card {
+    padding: 20px;
+  }
+  
+  .opcion-card h3 {
+    font-size: 22px;
+  }
+  
+  .footer_container {
+    padding: 0 15px;
+  }
+}
+
+@media (max-width: 480px) {
+  .encabezado h1 {
+    font-size: 45px;
+  }
+  
+  .encabezado nav {
+    padding: 15px 20px;
+  }
+  
+  nav a {
+    font-size: 16px;
+    padding: 5px 8px;
+  }
+  
+  .login button {
+    padding: 6px 12px;
+    font-size: 12px;
+  }
+  
+  .usuario-container {
+    padding: 20px 10px;
+  }
+  
+  .bienvenida {
+    padding: 20px 15px;
+  }
+  
+  .bienvenida h2 {
+    font-size: 28px;
+  }
+  
+  .bienvenida p {
+    font-size: 16px;
+  }
+  
+  .opcion-card {
+    padding: 20px 15px;
+  }
+  
+  .opcion-card h3 {
+    font-size: 20px;
+  }
+  
+  .opcion-card p {
+    font-size: 14px;
+  }
+  
+  .btn-opcion {
+    padding: 10px 15px;
+    font-size: 14px;
+  }
+}
+
+@media (min-width: 600px) {
+  .footer_container {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .footer_info {
+    max-width: 60%;
+  }
+
+  .footer_rights {
+    text-align: right;
+    border-top: none;
+    padding-top: 0;
+  }
+}

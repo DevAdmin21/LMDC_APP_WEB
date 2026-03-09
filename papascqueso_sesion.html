@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="CSS/Estilo.hamburguesa.css">
+    <title>Hamburguesa Sencilla - La Madre Del Caos</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+    <header class="navegacion">
+        <div class="navegacion__barra">
+            <a href="index.html">
+                <img src="Imágenes/Isotipo.png" alt="Logo La Madre Del Caos" class="navegacion__logo-img">
+            </a>
+
+            <button id="btn-menu" class="navegacion__boton">
+                <i id="icono-interfaz" class="fa-solid fa-bars"></i>
+            </button>
+
+            <nav id="menu-desplegable" class="navegacion__menu">
+                <a href="index_sesion.html" class="navegacion__enlace">Inicio</a>
+                <a href="menu_sesion.html" class="navegacion__enlace">Menú</a>
+                <a href="ofertas_sesion.html" class="navegacion__enlace">Ofertas</a>
+                <a href="eventos_sesion.html" class="navegacion__enlace">
+                    Eventos</a>
+                <a href="ConsultarBarriles_sesion.html" class="navegacion__enlace">
+                    Barriles</a>
+                <a href="mispedidos.html" class="navegacion__enlace">Pedidos</a>
+                <a href="Editar_Perfil.html" class="navegacion__enlace">Perfil</a>
+                <a href="iniciar_sesion.html" class="navegacion__enlace navegacion__enlace--inicio">Cerrar Sesión</a>
+            </nav>
+        </div>
+    </header>
+    <div class="navegacion-secundaria">
+        <nav class="nav-secundaria">
+            <a href="menu_sesion.html" class="nav-secundaria__item activo">
+                <i class="fa-solid fa-utensils"></i> Menú
+            </a>
+            <a href="categoria_consumibles_sesion.html" class="nav-secundaria__item activo">
+                <i class="fa-solid fa-utensils"></i> Platillos
+            </a>
+            <a href="categoria_bebidas_sesion.html" class="nav-secundaria__item">
+                <i class="fa-solid fa-glass-water"></i> Bebidas
+            </a>
+            <a href="categoria_extras_sesion.html" class="nav-secundaria__item">
+                <i class="fa-solid fa-plus"></i> Extras
+            </a>
+        </nav>
+    </div>
+    <main class="fila">
+        <div class="columna">
+            <img src="Imágenes/Galeria/Hamburguesa.jpg" alt="Hamburguesa Sencilla" class="platillo-img-principal">
+        </div>
+
+        <div class="columna info-comida">
+            <h2 class="titulo-comida">HAMBURGUESA SENCILLA</h2>
+
+            <div class="descripcion-comida">
+                <p class="texto">Los clásicos nunca pasan de moda.</p>
+                <p class="texto">Hamburguesa de una carne, acompañada de sus vegetales y salsas de la casa.</p>
+                <p class="texto">Incluye una porción de papas a la francesa para acompañar.</p>
+                <p class="texto">¿Listo para probar la reina de las carnes?</p>
+            </div>
+
+            <p class="precio-comida">Precio: $80.00</p>
+
+            <div>
+                <button class="boton-comprar">Comprar</button>
+            </div>
+        </div>
+    </main>
+    <footer class="footer">
+        <div class="footer_container">
+            <div class="footer_info">
+                <p class="footer_text"><strong>La madre del caos</strong><br>Golondrinas #116 Nezahualcóyotl</p>
+                <p class="footer_text">Teléfono: 341 439 4591</p>
+                <div class="footer_icons">
+                    <a href="https://api.whatsapp.com/send?phone=5213414394592&text&context=AfehAYr3mTJOvX4tookVc6ADUWKbXQFde5kN0zy_XmXPPXXmGnPbhDxJuToA_HaJIsF"
+                        class="footer_icon" target="_blank">
+                        <i class="fa-brands fa-whatsapp"></i>
+                    </a>
+                    <a href="https://www.tiktok.com/@lamadredelcaos?lang=es-419" class="footer_icon" target="_blank">
+                        <i class="fa-brands fa-tiktok"></i>
+                    </a>
+                    <a href="https://www.facebook.com/jclamadredelcaosasadosalbarril" class="footer_icon"
+                        target="_blank">
+                        <i class="fa-brands fa-facebook"></i>
+                    </a>
+                    <a href="https://www.instagram.com/lamadredelcaosasadosalbarril/" class="footer_icon"
+                        target="_blank">
+                        <i class="fa-brands fa-instagram"></i>
+                    </a>
+                </div>
+            </div>
+            <div class="footer_rights">
+                <p class="footer_rights_text">Todos los derechos reservados ©BitBang</p>
+            </div>
+        </div>
+    </footer>
+</body>
+
+</html>

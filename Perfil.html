@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mi Cuenta - La Madre Del Caos</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --blanco: #FFFFFF;
+            --negro: #000000;
+            --amarillo-lima: rgb(234, 241, 88);
+            --rojo-oscuro: #821717;
+            --gris-borde: #e1e1e1;
+            --titulo: 'Bebas Neue';
+            --texto: 'Open Sans', sans-serif;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: var(--texto);
+            background: var(--negro);
+            color: var(--blanco);
+            overflow-x: hidden;
+        }
+
+        /* --- NAVEGACIÓN --- */
+        .navegacion {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+            background: rgba(0, 0, 0, 0.9);
+            backdrop-filter: blur(12px);
+        }
+
+        .navegacion__barra {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 5%;
+            max-width: 1400px;
+            margin: auto;
+            height: 80px;
+        }
+
+        .navegacion__logo-img {
+            height: 50px;
+            filter: brightness(0) invert(1);
+        }
+
+        .navegacion__boton {
+            background: none;
+            border: none;
+            color: var(--blanco);
+            font-size: 1.8rem;
+            cursor: pointer;
+            display: none;
+        }
+
+        .navegacion__menu {
+            display: flex;
+            align-items: center;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .navegacion__enlace {
+            color: var(--blanco);
+            text-decoration: none;
+            font-family: var(--titulo);
+            font-size: 1.2rem;
+            letter-spacing: 1px;
+            transition: 0.3s;
+        }
+
+        .navegacion__enlace:hover {
+            color: var(--amarillo-lima);
+        }
+
+        .navegacion__enlace--inicio {
+            border: 1px solid var(--amarillo-lima);
+            padding: 8px 20px;
+            color: var(--amarillo-lima) !important;
+        }
+
+        /* --- CONTENIDO PERFIL --- */
+        .usuario-container {
+            padding: 120px 5% 60px 5%;
+            background-color: var(--blanco);
+            color: var(--negro);
+            min-height: 85vh;
+        }
+
+        .bienvenida {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .perfil-foto {
+            width: 160px;
+            height: 160px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 6px solid var(--negro);
+            margin-bottom: 20px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+        }
+
+        .subitulo {
+            font-family: var(--titulo);
+            font-size: clamp(35px, 6vw, 55px);
+            color: var(--negro);
+        }
+
+        .subitulo3 {
+            font-size: 1.2rem;
+            color: #555;
+            margin-top: 10px;
+        }
+
+        /* --- CARDS DE OPCIONES --- */
+        .menu-opciones {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .opcion-card {
+            background: #fff;
+            border: 1px solid var(--gris-borde);
+            border-radius: 15px;
+            padding: 40px 25px;
+            text-align: center;
+            transition: 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        .opcion-card:hover {
+            transform: translateY(-12px);
+            border-color: var(--amarillo-lima);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.08);
+        }
+
+        .opcion-card i {
+            font-size: 3.5rem;
+            color: var(--rojo-oscuro);
+            margin-bottom: 20px;
+        }
+
+        .galeria__texto {
+            font-family: var(--titulo);
+            font-size: 2.2rem;
+            margin-bottom: 15px;
+        }
+
+        .galeria__descripcion {
+            color: #666;
+            margin-bottom: 30px;
+            line-height: 1.6;
+        }
+
+        .btn-opcion {
+            display: inline-block;
+            background: var(--negro);
+            color: var(--blanco);
+            text-decoration: none;
+            padding: 12px 30px;
+            font-family: var(--titulo);
+            font-size: 1.2rem;
+            border-radius: 5px;
+            width: 100%;
+            transition: 0.3s;
+        }
+
+        .btn-opcion:hover {
+            background: var(--amarillo-lima);
+            color: var(--negro);
+        }
+
+        /* --- FOOTER --- */
+        .footer {
+            background-color: var(--negro);
+            color: var(--blanco);
+            padding: 4rem 5% 2rem 5%;
+        }
+
+        .footer__container {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            flex-wrap: wrap;
+            gap: 3rem;
+        }
+
+        .footer__brand {
+            font-family: var(--titulo);
+            font-size: 2.5rem;
+            color: var(--amarillo-lima);
+            margin-bottom: 1rem;
+        }
+
+        .footer_icon {
+            color: var(--blanco);
+            font-size: 1.6rem;
+            margin-right: 20px;
+            transition: 0.3s;
+        }
+
+        .footer_icon:hover { color: var(--amarillo-lima); }
+
+        /* --- RESPONSIVE --- */
+        @media (max-width: 950px) {
+            .navegacion__boton { display: block; }
+            .navegacion__menu {
+                position: fixed;
+                top: 0; left: 100%;
+                width: 100%; height: 100vh;
+                background: var(--negro);
+                flex-direction: column;
+                justify-content: center;
+                transition: 0.4s ease-in-out;
+            }
+            .navegacion__menu--activo { left: 0; }
+            .navegacion__enlace { font-size: 2rem; }
+        }
+    </style>
+</head>
+<body>
+    <header class="encabezado">
+        <nav class="navegacion">
+            <div class="navegacion__barra">
+                <a href="index_sesion.html" class="navegacion__logotipo">
+                    <img src="Imágenes/Isotipo.png" alt="Logo" class="navegacion__logo-img">
+                </a>
+                <button class="navegacion__boton" id="btn-menu">
+                    <i class="fa-solid fa-bars" id="icono-interfaz"></i>
+                </button>
+                <ul class="navegacion__menu" id="menu-desplegable">
+                    <li><a href="index_sesion.html" class="navegacion__enlace">Inicio</a></li>
+                    <li><a href="menu_sesion.html" class="navegacion__enlace">Menú</a></li>
+                    <li><a href="ofertas_sesion.html" class="navegacion__enlace">Ofertas</a></li>
+                    <li><a href="eventos_sesion.html" class="navegacion__enlace">Eventos</a></li>
+                    <li><a href="ConsultarBarriles_sesion.html" class="navegacion__enlace">Barriles</a></li>
+                    <li><a href="mispedidos.html" class="navegacion__enlace">Pedidos</a></li>
+                    <li><a href="Perfil.html" class="navegacion__enlace">Mi Perfil</a></li>
+                    <li><a href="iniciar_sesion.html" class="navegacion__enlace navegacion__enlace--inicio">Cerrar Sesión</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <main class="usuario-container">
+        <div class="bienvenida">
+            <img src="Imágenes/26.jpeg" alt="Foto de perfil" class="perfil-foto">
+            <h2 class="subitulo">¡BIENVENIDO/A DARECK FERNANDEZ!</h2>
+            <p class="subitulo3">Gestiona tus antojos y datos personales desde aquí.</p>
+        </div>
+
+        <div class="menu-opciones">
+            <div class="opcion-card">
+                <i class="fas fa-shopping-cart"></i>
+                <h3 class="galeria__texto">Hacer Pedido</h3>
+                <p class="galeria__descripcion">Explora nuestro menú y realiza tu pedido de comida casera favorita.</p>
+                <a href="menu_sesion.html" class="btn-opcion">Ver Menú</a>
+            </div>
+
+            <div class="opcion-card">
+                <i class="fas fa-receipt"></i>
+                <h3 class="galeria__texto">Mis Pedidos</h3>
+                <p class="galeria__descripcion">Consulta el estado de tus pedidos actuales y el historial de compras.</p>
+                <a href="mispedidos.html" class="btn-opcion">Ver Historial</a>
+            </div>
+
+            <div class="opcion-card">
+                <i class="fas fa-user-cog"></i>
+                <h3 class="galeria__texto">Mi Perfil</h3>
+                <p class="galeria__descripcion">Actualiza tu información personal, dirección y preferencias.</p>
+                <a href="Editar_Perfil.html" class="btn-opcion">Editar Datos</a>
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="footer__container">
+            <div class="footer__info">
+                <h3 class="footer__brand">La madre del caos</h3>
+                <p>Golondrinas #116 Nezahualcóyotl</p>
+                <p>Teléfono: 341 439 4591</p>
+                <div style="margin-top: 20px;">
+                    <a href="#" class="footer_icon"><i class="fa-brands fa-whatsapp"></i></a>
+                    <a href="#" class="footer_icon"><i class="fa-brands fa-tiktok"></i></a>
+                    <a href="#" class="footer_icon"><i class="fa-brands fa-facebook"></i></a>
+                    <a href="#" class="footer_icon"><i class="fa-brands fa-instagram"></i></a>
+                </div>
+            </div>
+            <div class="footer__rights">
+                <p>Todos los derechos reservados ©BitBang</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/menu.js"></script>
+</body>
+</html>

@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="CSS/Estilo.hamburguesa.css">
+    <link rel="stylesheet" href="CSS/Estilo_editar_perfil.css">
+
+    <title>Editar Perfil - La Madre Del Caos</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet">
+
+    <style>
+        /* Estilos adicionales para que el formulario combine con el resto de la web */
+        :root {
+            --dorado: #c1a35f;
+            --negro-suave: #1a1a1a;
+        }
+
+        body {
+            background-color: #000;
+            color: #fff;
+            font-family: 'Open Sans', sans-serif;
+        }
+
+        .perfil {
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            margin-bottom: 50px;
+        }
+
+        .container {
+            background: var(--negro-suave);
+            padding: 30px;
+            border-radius: 15px;
+            border: 1px solid var(--dorado);
+            max-width: 800px;
+            width: 100%;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.5);
+        }
+
+        .container header {
+            font-family: 'Bebas Neue', cursive;
+            font-size: 2.5rem;
+            color: var(--dorado);
+            text-align: center;
+            margin-bottom: 20px;
+            letter-spacing: 2px;
+        }
+
+        .input-box label, .gender-box h3 {
+            color: var(--dorado);
+            font-weight: bold;
+            display: block;
+            margin-top: 15px;
+            margin-bottom: 5px;
+            text-transform: uppercase;
+            font-size: 0.9rem;
+        }
+
+        .input-box input, .select-box select {
+            width: 100%;
+            padding: 12px;
+            background: #2a2a2a;
+            border: 1px solid #444;
+            color: #fff;
+            border-radius: 5px;
+            outline: none;
+            transition: 0.3s;
+        }
+
+        .input-box input:focus {
+            border-color: var(--dorado);
+        }
+
+        .column {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .column .input-box {
+            flex: 1;
+            min-width: 250px;
+        }
+
+        .input-img {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .input-img img {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            border: 3px solid var(--dorado);
+            object-fit: cover;
+            margin-top: 10px;
+        }
+
+        .gender-option {
+            display: flex;
+            gap: 20px;
+            margin-top: 10px;
+        }
+
+        #enviar {
+            margin-top: 30px;
+            width: 100%;
+            padding: 15px;
+            background: var(--dorado);
+            border: none;
+            color: #000;
+            font-family: 'Bebas Neue', cursive;
+            font-size: 1.5rem;
+            cursor: pointer;
+            border-radius: 5px;
+            transition: 0.3s ease;
+        }
+
+        #enviar:hover {
+            background: #fff;
+            transform: scale(1.02);
+        }
+
+        /* Estilo para los radio buttons */
+        .gender input[type="radio"] {
+            accent-color: var(--dorado);
+        }
+    </style>
+</head>
+
+<body>
+
+    <header class="navegacion">
+        <div class="navegacion__barra">
+            <a href="index_sesion.html" class="navegacion__logotipo">
+                <img src="Imágenes/Isotipo.png" alt="Logo La Madre Del Caos" class="navegacion__logo-img">
+            </a>
+
+            <button id="btn-menu" class="navegacion__boton">
+                <i id="icono-interfaz" class="fa-solid fa-bars"></i>
+            </button>
+
+            <nav id="menu-desplegable" class="navegacion__menu">
+                <a href="index_sesion.html" class="navegacion__enlace">Inicio</a>
+                <a href="menu_sesion.html" class="navegacion__enlace">Menú</a>
+                <a href="ofertas_sesion.html" class="navegacion__enlace">Ofertas</a>
+                <a href="eventos_sesion.html" class="navegacion__enlace">Eventos</a>
+                <a href="ConsultarBarriles_sesion.html" class="navegacion__enlace">Barriles</a>
+                <a href="mispedidos.html" class="navegacion__enlace">Pedidos</a>
+                <a href="Editar_Perfil.html" class="navegacion__enlace">Perfil</a>
+                <a href="iniciar_sesion.html" class="navegacion__enlace navegacion__enlace--inicio">Cerrar Sesión</a>
+            </nav>
+        </div>
+    </header>
+
+    <br><br><br><br><br><br>
+
+    <main class="perfil">
+        <section class="container">
+            <header>MI PERFIL</header>
+            <form action="Perfil.html" class="form">
+                <div class="input-img">
+                    <label>IMAGEN DE PERFIL</label><br>
+                    <img src="Imágenes/26.jpeg" alt="Foto de perfil">
+                </div>
+
+                <div class="column">
+                    <div class="input-box">
+                        <label>NOMBRE(S)</label>
+                        <input type="text" value="DARECK EMMANUEL">
+                    </div>
+                </div>
+
+                <div class="column">
+                    <div class="input-box">
+                        <label>APELLIDO PATERNO</label>
+                        <input type="text" value="FERNANDEZ">
+                    </div>
+                    <div class="input-box">
+                        <label>APELLIDO MATERNO</label>
+                        <input type="text" value="SUAREZ">
+                    </div>
+                </div>
+
+                <div class="input-box">
+                    <label>CORREO ELECTRÓNICO</label>
+                    <input type="email" value="243105037@alumnos.utn.edu.mx">
+                </div>
+
+                <div class="column">
+                    <div class="input-box">
+                        <label>CONTRASEÑA</label>
+                        <input type="password" value="I123Hola">
+                    </div>
+                    <div class="input-box">
+                        <label>CONFIRMAR CONTRASEÑA</label>
+                        <input type="password" value="I123Hola">
+                    </div>
+                </div>
+
+                <div class="column">
+                    <div class="input-box">
+                        <label>TELÉFONO</label>
+                        <input type="text" value="5548102364">
+                    </div>
+                    <div class="input-box">
+                        <label>FECHA DE NACIMIENTO</label>
+                        <input type="date">
+                    </div>
+                </div>
+
+                <div class="gender-box">
+                    <h3>GÉNERO</h3>
+                    <div class="gender-option">
+                        <div class="gender">
+                            <input type="radio" id="check-male" name="gender" checked />
+                            <label for="check-male">MASCULINO</label>
+                        </div>
+                        <div class="gender">
+                            <input type="radio" id="check-female" name="gender" />
+                            <label for="check-female">FEMENINO</label>
+                        </div>
+                        <div class="gender">
+                            <input type="radio" id="check-other" name="gender" />
+                            <label for="check-other">OTRO</label>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="input-box address">
+                    <label>DIRECCIÓN</label>
+                    <input type="text" placeholder="Calle y número" value="CALLE 24">
+                    <div class="column">
+                        <div class="select-box">
+                            <select>
+                                <option>MEXICO (ESTADO)</option>
+                                <option>CDMX</option>
+                                <option>PUEBLA</option>
+                            </select>
+                        </div>
+                        <input type="text" placeholder="Municipio" value="NEZAHUALCOYOTL">
+                    </div>
+                    <div class="column">
+                        <input type="text" placeholder="Colonia" value="REFORMA">
+                        <input type="number" placeholder="Código Postal" value="54147">
+                    </div>
+                </div>
+
+                <input type="submit" value="GUARDAR CAMBIOS" id="enviar">
+            </form>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="footer_container">
+            <div class="footer_info">
+                <p class="footer_text"><strong>La madre del caos</strong><br>Golondrinas #116 Nezahualcóyotl</p>
+                <p class="footer_text">Teléfono: 341 439 4591</p>
+                <div class="footer_icons">
+                    <a href="#" class="footer_icon"><i class="fa-brands fa-whatsapp"></i></a>
+                    <a href="#" class="footer_icon"><i class="fa-brands fa-tiktok"></i></a>
+                    <a href="#" class="footer_icon"><i class="fa-brands fa-facebook"></i></a>
+                    <a href="#" class="footer_icon"><i class="fa-brands fa-instagram"></i></a>
+                </div>
+            </div>
+            <div class="footer_rights">
+                <p class="footer_rights_text">Todos los derechos reservados ©BitBang</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/menu.js"></script>
+</body>
+</html>

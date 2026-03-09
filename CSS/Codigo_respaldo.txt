@@ -1,0 +1,52 @@
+/* Estilo para el encabezado */
+body{
+    margin: 0;
+    padding: 0;
+    background-color: #F5F5F5;
+}
+.encabezado{
+    width: 100%;
+    overflow: hidden;
+    background-color: #ffffff;
+}
+.encabezado img{
+    float: left;
+    width: 10%;
+    margin: 0% 0%;
+}
+.encabezado h1{
+    float: left;
+    width: 50%;
+    margin: 0% 10;
+    color: #2e130f;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    font-size: 60px;
+}
+.encabezado nav{
+    max-width: 100%;
+    background-color: #821717;
+    width: 100%;
+    overflow: hidden;
+    text-align: center;
+    padding: 0.8% 0%;
+}
+nav a{
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    padding: 4% 4%;
+    color: #FFC300;
+    text-decoration: none;
+    font-size: 1.2em;
+    letter-spacing: 0.5px;
+    text-align: center;
+}
+.encabezado nav a:hover{
+    background-color: #FFC300;
+    color: #821717;
+}
+.banner{
+    width: 10%;
+    height: 30px;
+    background-image: url('../img/banner.jpg');
+    background-size: cover;
+    background-position: center;
+}
