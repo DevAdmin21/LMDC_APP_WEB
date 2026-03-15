@@ -98,14 +98,6 @@ body {
     color: var(--negro);
 }
 
-.galeria__descripcion {
-    text-align: center;
-    font-family: var(--texto);
-    font-size: 1.1rem;
-    color: #666;
-    margin-bottom: 2rem;
-}
-
 .galeria__row {
     display: flex;
     flex-wrap: wrap;
@@ -136,8 +128,9 @@ body {
 .galeria__img {
     width: 100%;
     height: 300px;
-    object-fit: contain;
+    object-fit: cover;
     border-radius: 10px;
+    display: block;
 }
 
 .galeria__enlace {
@@ -155,6 +148,15 @@ body {
     text-transform: uppercase;
     margin-top: 10px;
     margin-bottom: 5px;
+    text-align: left;
+}
+
+.galeria__descripcion {
+    font-family: var(--texto);
+    font-size: 15px;
+    color: #555;
+    line-height: 1.4;
+    text-align: center;
 }
 
 /* --- FOOTER --- */
@@ -224,4 +226,168 @@ body {
         align-items: center;
         text-align: center;
     }
+}
+
+/* Contenedor de los botones centrado */
+.categorias {
+    display: flex;
+    justify-content: center; /* centra horizontalmente */
+    flex-wrap: wrap;         /* permite que los botones bajen de línea si no caben */
+    gap: 10px;               /* espacio entre botones */
+    margin: 20px 0;          /* separación arriba y abajo */
+}
+
+/* Estilo general de los botones de categoría */
+.categorias button {
+    background-color: #f1a847;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+/* Hover: cambia ligeramente el color y la sombra */
+.categorias button:hover {
+    background-color: #a01823;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 8px rgba(0,0,0,0.15);
+}
+
+/* Botón activo seleccionado */
+.categorias button.active {
+    background-color: #a01823; /* color diferente al resto */
+    color: #fff;
+    box-shadow: 0 6px 8px rgba(0,0,0,0.2);
+    transform: translateY(-1px);
+}
+
+/* Fondo oscuro detrás de la tarjeta */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.5);
+    display: none; /* inicial escondido */
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+/* Tarjeta del platillo */
+.modal-card {
+    background: #fff;
+    border-radius: 10px;
+    padding: 20px;
+    width: 90%;
+    max-width: 400px;
+    text-align: center;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+    position: relative;
+}
+
+.modal-card img {
+    width: 100%;        /* ocupa todo el ancho del modal */
+    height: 250px;      /* altura fija */
+    object-fit: cover;  /* mantiene proporción, recorta si es necesario */
+    border-radius: 8px;
+    margin-bottom: 15px;
+}
+
+.modal-card h3 {
+    margin: 10px 0;
+}
+
+.modal-card p {
+    font-size: 0.9rem;
+    margin: 5px 0;
+}
+
+/* Botón agregar al carrito */
+.modal-card button {
+    margin-top: 15px;
+    padding: 10px 20px;
+    background-color: #a01823;
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.modal-card button:hover {
+    background-color: #3a0a0e;
+}
+
+/* Botón cerrar */
+.modal-card .cerrar {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    font-size: 1.3rem;
+    cursor: pointer;
+    color: #333;
+}
+
+/* Contenedor completo de inicio */
+.inicio-categorias {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    background: #f8f8f8;
+}
+
+/* Título */
+.inicio-titulo {
+    font-family: 'Bebas Neue', cursive;
+    font-size: 3rem;
+    margin-bottom: 30px;
+}
+
+/* Contenedor de las categorías */
+.categorias-home {
+    display: flex;
+    gap: 100px;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+/* Cada categoría */
+.categoria-item {
+    width: 300px;
+    height: 300px;
+    background: #fff;
+    border-radius: 10px;
+    overflow: hidden;
+    cursor: pointer;
+    text-align: center;
+    box-shadow: 0 6px 15px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.categoria-item img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+.categoria-item h2 {
+    margin: 10px 0;
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 700;
+}
+
+/* Hover efecto */
+.categoria-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.2);
 }

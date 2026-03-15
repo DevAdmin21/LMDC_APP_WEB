@@ -40,57 +40,78 @@
         </nav>
     </header>
     <br>
-    <div class="Banner">
-        <img src="../Vista/Imágenes/Banner.jpg" alt="Banner" class="banner-img">
-    </div>
-    <div class="galeria">
-        <h2 class="subitulo">Aquí inicia tu aventura por el sabor</h2>
-        <p class="galeria__descripcion">Para paladares exigntes...</p>
-        <div class="galeria__row">
-            <div class="galeria__item">
-                <a href="categoria_consumibles.html" class="galeria__enlace">
-                    <img src="Imágenes/Galeria/Menú.jpeg" alt="Consumibles" class="galeria__img">
-                    <p class="galeria__texto">Alimentos</p>
-                    <p class="galeria__descripcion">Tacos, cortes, hamburguesas...</p>
-                </a>
-            </div>
-            <div class="galeria__item">
-                <a href="categoria_bebidas.html" class="galeria__enlace">
-                    <img src="Imágenes/Galeria/Bebidas/agua_sabor.jpg" alt="Bebidas" class="galeria__img">
-                    <p class="galeria__texto">Bebidas</p>
-                    <p class="galeria__descripcion">Sodas, cervezas, aguas frescas...</p>
-                </a>
-            </div>
-            <div class="galeria__item">
-                <a href="categoria_extras.html" class="galeria__enlace">
-                    <img src="Imágenes/Galeria/Extras/Guacamole.jpg" alt="Extras" class="galeria__img">
-                    <p class="galeria__texto">Extras</p>
-                    <p class="galeria__descripcion">Guarniciones, aderezos, postres...</p>
-                </a>
-            </div>
+<div class="galeria">
+
+<h2 class="subitulo">Aquí inicia tu aventura por el sabor</h2>
+
+<p class="galeria__descripcion">Para paladares exigentes...</p>
+
+<!-- Pantalla de selección de categoría -->
+<div id="inicio-categorias" class="inicio-categorias">
+    <h1 class="inicio-titulo">¡Elige tu categoría!</h1>
+    <div class="categorias-home">
+        <div class="categoria-item" data-categoria="Cortes">
+            <img src="Imágenes/Galeria/Platillos/Cortes/asada.jpg" alt="Cortes">
+            <h2>Cortes</h2>
+        </div>
+        <div class="categoria-item" data-categoria="Hamburguesas">
+            <img src="Imágenes/Galeria/Platillos/Hamburguesas/Hamburguesa.jpg" alt="Hamburguesas">
+            <h2>Hamburguesas</h2>
+        </div>
+        <div class="categoria-item" data-categoria="Tacos">
+            <img src="Imágenes/Galeria/Platillos/Tacos/tacosdeasada.jpg" alt="Tacos">
+            <h2>Tacos</h2>
+        </div>
+        <div class="categoria-item" data-categoria="Bebidas">
+            <img src="Imágenes/Galeria/Bebidas/limonada.jpg" alt="Bebidas">
+            <h2>Bebidas</h2>
+        </div>
+        <div class="categoria-item" data-categoria="Postres">
+            <img src="Imágenes/Galeria/Platillos/Postres/helado.png" alt="Postres">
+            <h2>postres</h2>
+        </div>
+        <div class="categoria-item" data-categoria="Extras">
+            <img src="Imágenes/Galeria/Extras/Guacamole.jpg" alt="Extras">
+            <h2>Extras</h2>
         </div>
     </div>
-    <footer class="footer">
-        <div class="footer__container">
-            <div class="footer__info">
-                <h3 class="footer__brand">La madre del caos</h3>
-                <p class="footer__text">Golondrinas #116 Nezahualcóyotl</p>
-                <p class="footer__text">Teléfono: 341 439 4591</p>
+</div>
 
-                <div class="footer__icons">
-                    <a href="#" class="footer_icon" target="_blank"><i class="fa-brands fa-whatsapp"></i></a>
-                    <a href="#" class="footer_icon" target="_blank"><i class="fa-brands fa-tiktok"></i></a>
-                    <a href="#" class="footer_icon" target="_blank"><i class="fa-brands fa-facebook"></i></a>
-                    <a href="#" class="footer_icon" target="_blank"><i class="fa-brands fa-instagram"></i></a>
-                </div>
-            </div>
+<!-- Galería principal (oculta al inicio) -->
+<div id="galeria-principal" style="display:none;">
+    <!-- aquí va tu div de botones de categorías y contenedor de platillos -->
 
-            <div class="footer__rights">
-                <p class="footer__rights-text">Todos los derechos reservados ©BitBang</p>
-            </div>
-        </div>
+
+<!-- BOTONES DE CATEGORIAS -->
+
+<div class="categorias">
+    <button onclick="filtrarCategoria('Cortes')"></i>Cortes</button>
+    <button onclick="filtrarCategoria('Hamburguesas')">Hamburguesas</button>
+    <button onclick="filtrarCategoria('Tacos')">Tacos</button>
+    <button onclick="filtrarCategoria('Bebidas')">Bebidas</button>    
+    <button onclick="filtrarCategoria('Postres')">Postres</button>
+    <button onclick="filtrarCategoria('Extras')">Extras</button>
+    <button onclick="filtrarCategoria('todos')">Todos</button>
+</div>
+
+<div id="contenedor-menu" class="galeria__row"></div>
+
+<div id="modal" class="modal-overlay">
+    <div class="modal-card">
+        <span class="cerrar">&times;</span>
+        <img id="modal-imagen" src="" alt="">
+        <h3 id="modal-nombre"></h3>
+        <p id="modal-descripcion"></p>
+        <p id="modal-precio" style="font-weight:bold;"></p>
+        <button id="agregar-carrito">Agregar al carrito</button>
+    </div>
+</div>
+</div>
+</div>
+
     </footer>
     <script src="js/menu.js"></script>
+     <script src="js/menu_platillos.js"></script>
 </body>
 
 </html>
