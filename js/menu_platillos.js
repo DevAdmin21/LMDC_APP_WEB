@@ -8,7 +8,7 @@ document.addEventListener("DOMContentLoaded", function () {
     fetch("api/php/visualizar_menu.php")
     .then(res => res.json())
     .then(data => {
-        platillos = data.platillos || data; // JSON puede venir con o sin "platillos"
+        platillos = data.platillos || data; 
     })
     .catch(error => console.log(error));
 
@@ -36,11 +36,10 @@ document.addEventListener("DOMContentLoaded", function () {
     categoriasHome.forEach(cat => {
         cat.addEventListener("click", () => {
             const categoria = cat.getAttribute("data-categoria");
-            inicioCategorias.style.display = "none";  // Ocultar pantalla inicial
-            galeriaPrincipal.style.display = "block"; // Mostrar galería
+            inicioCategorias.style.display = "none";  
+            galeriaPrincipal.style.display = "block"; 
             filtrarCategoria(categoria);
 
-            // Marcar botón activo en la galería
             document.querySelectorAll(".categorias button").forEach(b => b.classList.remove("active"));
             const btnGaleria = Array.from(document.querySelectorAll(".categorias button"))
                 .find(b => b.textContent === cat.querySelector("h2").textContent);
@@ -63,7 +62,6 @@ document.addEventListener("DOMContentLoaded", function () {
 // Funciones
 // ======================
 
-// Mostrar platillos en la galería
 function mostrarPlatillos(lista){
     const contenedor = document.getElementById("contenedor-menu");
     contenedor.innerHTML = "";
@@ -78,14 +76,11 @@ function mostrarPlatillos(lista){
                 <p style="font-weight:bold">$${p.precio}</p>
             `;
             contenedor.appendChild(item);
-
-            // Abrir modal al hacer click
             item.addEventListener("click", () => abrirModal(p));
         }
     });
 }
 
-// Filtrar platillos por categoría
 function filtrarCategoria(categoria){
     if(categoria === "todos"){
         mostrarPlatillos(platillos);
@@ -95,7 +90,7 @@ function filtrarCategoria(categoria){
     mostrarPlatillos(filtrados);
 }
 
-// Abrir modal con los detalles del platillo
+// FUNCIÓN CORREGIDA
 function abrirModal(platillo){
     document.getElementById("modal-imagen").src = platillo.imagen;
     document.getElementById("modal-nombre").textContent = platillo.nombre;
@@ -104,13 +99,28 @@ function abrirModal(platillo){
     document.getElementById("modal").style.display = "flex";
 
     const btnAgregar = document.getElementById("agregar-carrito");
+    
+    // Definimos una única vez la acción del botón
     btnAgregar.onclick = () => {
+        // 1. Obtener el carrito actual
+        let carrito = JSON.parse(localStorage.getItem("carrito_caos")) || [];
+
+        // 2. Añadir el nuevo platillo
+        carrito.push({
+            id: platillo.id_platillo || Date.now(),
+            nombre: platillo.nombre,
+            precio: parseFloat(platillo.precio),
+            imagen: platillo.imagen
+        });
+
+        // 3. Guardar en localStorage
+        localStorage.setItem("carrito_caos", JSON.stringify(carrito));
+
         alert(`${platillo.nombre} agregado al carrito!`);
         cerrarModal();
     };
 }
 
-// Cerrar modal
 function cerrarModal(){
     document.getElementById("modal").style.display = "none";
 }
