@@ -1,12 +1,15 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mi Cuenta - La Madre Del Caos</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet">
-    
+    <link
+        href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap"
+        rel="stylesheet">
+
     <style>
         :root {
             --blanco: #FFFFFF;
@@ -111,7 +114,7 @@
             object-fit: cover;
             border: 6px solid var(--negro);
             margin-bottom: 20px;
-            box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
         }
 
         .subitulo {
@@ -147,7 +150,7 @@
         .opcion-card:hover {
             transform: translateY(-12px);
             border-color: var(--amarillo-lima);
-            box-shadow: 0 15px 30px rgba(0,0,0,0.08);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.08);
         }
 
         .opcion-card i {
@@ -217,25 +220,39 @@
             transition: 0.3s;
         }
 
-        .footer_icon:hover { color: var(--amarillo-lima); }
+        .footer_icon:hover {
+            color: var(--amarillo-lima);
+        }
 
         /* --- RESPONSIVE --- */
         @media (max-width: 950px) {
-            .navegacion__boton { display: block; }
+            .navegacion__boton {
+                display: block;
+            }
+
             .navegacion__menu {
                 position: fixed;
-                top: 0; left: 100%;
-                width: 100%; height: 100vh;
+                top: 0;
+                left: 100%;
+                width: 100%;
+                height: 100vh;
                 background: var(--negro);
                 flex-direction: column;
                 justify-content: center;
                 transition: 0.4s ease-in-out;
             }
-            .navegacion__menu--activo { left: 0; }
-            .navegacion__enlace { font-size: 2rem; }
+
+            .navegacion__menu--activo {
+                left: 0;
+            }
+
+            .navegacion__enlace {
+                font-size: 2rem;
+            }
         }
     </style>
 </head>
+
 <body>
     <header class="encabezado">
         <nav class="navegacion">
@@ -247,14 +264,15 @@
                     <i class="fa-solid fa-bars" id="icono-interfaz"></i>
                 </button>
                 <ul class="navegacion__menu" id="menu-desplegable">
-                    <li><a href="index_sesion.html" class="navegacion__enlace">Inicio</a></li>
-                    <li><a href="menu_sesion.html" class="navegacion__enlace">Menú</a></li>
-                    <li><a href="ofertas_sesion.html" class="navegacion__enlace">Ofertas</a></li>
-                    <li><a href="eventos_sesion.html" class="navegacion__enlace">Eventos</a></li>
-                    <li><a href="ConsultarBarriles_sesion.html" class="navegacion__enlace">Barriles</a></li>
+                    <li><a href="index.html" class="navegacion__enlace">Inicio</a></li>
+                    <li><a href="menu.html" class="navegacion__enlace">Menú</a></li>
+                    <li><a href="ofertas.html" class="navegacion__enlace">Ofertas</a></li>
+                    <li><a href="eventos.html" class="navegacion__enlace">Eventos</a></li>
+                    <li><a href="ConsultarBarriles.html" class="navegacion__enlace">Barriles</a></li>
                     <li><a href="mispedidos.html" class="navegacion__enlace">Pedidos</a></li>
                     <li><a href="Perfil.html" class="navegacion__enlace">Mi Perfil</a></li>
-                    <li><a href="iniciar_sesion.html" class="navegacion__enlace navegacion__enlace--inicio">Cerrar Sesión</a></li>
+                    <li><a href="iniciar_sesion.html" class="navegacion__enlace navegacion__enlace--inicio">Cerrar
+                            Sesión</a></li>
                 </ul>
             </div>
         </nav>
@@ -278,7 +296,8 @@
             <div class="opcion-card">
                 <i class="fas fa-receipt"></i>
                 <h3 class="galeria__texto">Mis Pedidos</h3>
-                <p class="galeria__descripcion">Consulta el estado de tus pedidos actuales y el historial de compras.</p>
+                <p class="galeria__descripcion">Consulta el estado de tus pedidos actuales y el historial de compras.
+                </p>
                 <a href="mispedidos.html" class="btn-opcion">Ver Historial</a>
             </div>
 
@@ -311,5 +330,17 @@
     </footer>
 
     <script src="js/menu.js"></script>
+    <script type="module">
+        import { autorizar } from "./api/js/lib/autorizar.js";
+
+        document.addEventListener("DOMContentLoaded", async () => {
+            // Solo permitimos al cliente
+            const usuario = await autorizar(['cliente']);
+            if (usuario) {
+                console.log("Hola")
+            }
+        });
+    </script>
 </body>
+
 </html>
