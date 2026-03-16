@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>La Madre Del Caos - Caja</title>
+    <link rel="stylesheet" href="CSS/estilo_caja.css"> <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Open+Sans:wght@300;400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header class="encabezado">
+        <a href="menu_sesion.html">
+            <img src="Imágenes/Isotipo.png" alt="Logo La Madre Del Caos">
+        </a>
+        <h1>Punto de Venta</h1>
+    </header>
+
+    <div class="contenedor-caja">
+        <div class="panel-controles">
+            <select id="selector-productos">
+                <option value="" disabled selected>Seleccione un producto...</option>
+                </select>
+            <button id="btn-agregar" class="btn-primario">Agregar +</button>
+        </div>
+
+        <div class="panel-lista">
+            <ul id="lista-cuenta">
+                </ul>
+        </div>
+
+        <div class="panel-cobro">
+            <div class="descuento-container">
+                <input type="checkbox" id="check-recipiente">
+                <label for="check-recipiente" class="texto-descuento">
+                    El cliente lleva su propio recipiente <br> <strong>(20% de descuento)</strong>
+                </label>
+            </div>
+
+            <div class="total-container">
+                <h2>Total: $<span id="monto-total">0.00</span></h2>
+            </div>
+
+            <button id="btn-cobrar" class="btn-exito">Cobrar $</button>
+        </div>
+    </div>
+
+    <script src="api/js/lib/caja.js"></script>
+</body>
+</html>
