@@ -158,48 +158,47 @@
     <main class="perfil">
         <section class="container">
             <header>PERFIL DE EMPLEADO</header>
+<form class="form" id="formEmpleado">
+    <div class="column">
+        <div class="input-box">
+            <label>ID TRABAJADOR</label>
+            <input type="text" id="id_trabajador" name="id_trabajador" readonly style="opacity: 0.7; cursor: not-allowed;">
+        </div>
+        <div class="input-box">
+            <label>ROL</label>
+            <div class="select-box">
+                <select id="rol" name="rol" disabled style="opacity: 0.7; cursor: not-allowed;">
+                    <option value="REPARTIDOR">REPARTIDOR</option>
+                    <option value="COBRADOR">COBRADOR</option>
+                </select>
+            </div>
+        </div>
+    </div>
 
-            <form class="form" id="formEmpleado">
-                <div class="column">
-                    <div class="input-box">
-                        <label>ID TRABAJADOR</label>
-                        <input type="text" id="id_trabajador" name="id_trabajador" readonly>
-                    </div>
-                    <div class="input-box">
-                        <label>ROL</label>
-                        <div class="select-box">
-                            <select id="rol" name="rol">
-                                <option value="REPARTIDOR">REPARTIDOR</option>
-                                <option value="COBRADOR">COBRADOR</option>
-                            </select>
-                        </div>
-                    </div>
-                </div>
+    <div class="column">
+        <div class="input-box">
+            <label>NOMBRE</label>
+            <input type="text" id="nombre" name="nombre" readonly style="opacity: 0.7; cursor: not-allowed;">
+        </div>
+        <div class="input-box">
+            <label>APELLIDO PATERNO</label>
+            <input type="text" id="apellido_p" name="apellido_p" readonly style="opacity: 0.7; cursor: not-allowed;">
+        </div>
+    </div>
 
-                <div class="column">
-                    <div class="input-box">
-                        <label>NOMBRE</label>
-                        <input type="text" id="nombre" name="nombre">
-                    </div>
-                    <div class="input-box">
-                        <label>APELLIDO PATERNO</label>
-                        <input type="text" id="apellido_p" name="apellido_p">
-                    </div>
-                </div>
+    <div class="column">
+        <div class="input-box">
+            <label>TELÉFONO (EDITABLE)</label>
+            <input type="text" id="telefono" name="telefono" placeholder="Ingresa tu nuevo teléfono">
+        </div>
+        <div class="input-box">
+            <label>FECHA DE CONTRATACIÓN</label>
+            <input type="date" id="fecha_contratacion" name="fecha_contratacion" readonly style="opacity: 0.7; cursor: not-allowed;">
+        </div>
+    </div>
 
-                <div class="column">
-                    <div class="input-box">
-                        <label>TELÉFONO</label>
-                        <input type="text" id="telefono" name="telefono">
-                    </div>
-                    <div class="input-box">
-                        <label>FECHA DE CONTRATACIÓN</label>
-                        <input type="date" id="fecha_contratacion" name="fecha_contratacion">
-                    </div>
-                </div>
-
-                <input type="submit" value="GUARDAR CAMBIOS" id="enviar">
-            </form>
+    <input type="submit" value="ACTUALIZAR TELÉFONO" id="enviar">
+</form>
         </section>
     </main>
 
