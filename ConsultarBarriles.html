@@ -10,6 +10,48 @@
     <link
         href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap"
         rel="stylesheet">
+    <style>
+       .modal{
+display:none;
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100%;
+background:rgba(0,0,0,0.8);
+justify-content:center;
+align-items:center;
+z-index:1000;
+}
+
+.modal-contenido{
+background:white;
+padding:30px;
+border-radius:10px;
+max-width:500px;
+text-align:center;
+position:relative;
+}
+
+.modal-img{
+width:200px;
+margin-bottom:15px;
+}
+
+#cerrarModal{
+position:absolute;
+top:10px;
+right:15px;
+font-size:25px;
+cursor:pointer;
+}
+
+.precio-modal{
+font-size:20px;
+font-weight:bold;
+margin-top:10px;
+} 
+    </style>
 </head>
 
 <body>
@@ -43,34 +85,37 @@
         <h2 class="subitulo">Los mejores Barriles</h2>
         <p class="galeria__descripcion">Para tus mejores Asados...</p>
         <div class="galeria__row">
-            <div class="galeria__item">
-                <a href="BarrilJupiter.html" class="galeria__enlace">
-                    <img src="Imágenes/Barriles/GIGANT1.png" alt="Consumibles" class="galeria__img">
-                    <p class="galeria__texto">Barril Jupiter</p>
-                    <p class="galeria__descripcion">$1,379.900</p>
-                </a>
-            </div>
-            <div class="galeria__item">
-                <a href="BarrilOlympus.html" class="galeria__enlace">
-                    <img src="Imágenes/Barriles/GRAND.png" alt="Bebidas" class="galeria__img">
-                    <p class="galeria__texto">Barril Olympus</p>
-                    <p class="galeria__descripcion">$1,099.900</p>
-                </a>
-            </div>
-            <div class="galeria__item">
-                <a href="BarrilMarte.html" class="galeria__enlace">
-                    <img src="Imágenes/Barriles/MEDIAN.png" alt="Extras" class="galeria__img">
-                    <p class="galeria__texto">Barril Marte</p>
-                    <p class="galeria__descripcion">$819.900</p>
-                </a>
-            </div>
-            <div class="galeria__item">
-                <a href="BarrilMercury.html" class="galeria__enlace">
-                    <img src="Imágenes/Barriles/PQÑO.png" alt="Extras" class="galeria__img">
-                    <p class="galeria__texto">Barril Mercury</p>
-                    <p class="galeria__descripcion">$679.900</p>
-                </a>
-            </div>
+           <div class="galeria__item">
+    <a href="#" class="galeria__enlace barril" data-barril="jupiter">
+        <img src="Imágenes/Barriles/GIGANT1.png" class="galeria__img">
+        <p class="galeria__texto">Barril Jupiter</p>
+        <p class="galeria__descripcion">$1,379.900</p>
+    </a>
+</div>
+
+<div class="galeria__item">
+    <a href="#" class="galeria__enlace barril" data-barril="olympus">
+        <img src="Imágenes/Barriles/GRAND.png" class="galeria__img">
+        <p class="galeria__texto">Barril Olympus</p>
+        <p class="galeria__descripcion">$1,099.900</p>
+    </a>
+</div>
+
+<div class="galeria__item">
+    <a href="#" class="galeria__enlace barril" data-barril="marte">
+        <img src="Imágenes/Barriles/MEDIAN.png" class="galeria__img">
+        <p class="galeria__texto">Barril Marte</p>
+        <p class="galeria__descripcion">$819.900</p>
+    </a>
+</div>
+
+<div class="galeria__item">
+    <a href="#" class="galeria__enlace barril" data-barril="mercury">
+        <img src="Imágenes/Barriles/PQÑO.png" class="galeria__img">
+        <p class="galeria__texto">Barril Mercury</p>
+        <p class="galeria__descripcion">$679.900</p>
+    </a>
+</div>
         </div>
     </div>
     <footer class="footer">
@@ -94,6 +139,23 @@
         </div>
     </footer>
     <script src="js/menu.js"></script>
+    <script src="js/barriles.js"></script>
+    
+    <div id="modalBarril" class="modal">
+    <div class="modal-contenido">
+        <span id="cerrarModal">&times;</span>
+
+        <img id="modalImg" class="modal-img">
+
+        <h2 id="modalTitulo"></h2>
+
+        <div id="modalDescripcion"></div>
+
+        <p id="modalPrecio" class="precio-modal"></p>
+
+        <button class="boton-comprar">Comprar</button>
+    </div>
+</div>
 </body>
 
 </html>
