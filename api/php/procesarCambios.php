@@ -5,7 +5,7 @@ require_once __DIR__ . "/lib/recibeTexto.php";
 
 session_start();
 
-// 1. Validar seguridad: ¿Está logueado?
+// 1. Validar seguridad: que este logueado
 if (!isset($_SESSION['id_usuario'])) {
     devuelveJson(["exito" => false, "mensaje" => "Sesión no autorizada."]);
     exit;
@@ -29,8 +29,6 @@ try {
     $pdo = Conexion::getInstance()->getConnection();
 
     // 4. Preparar el UPDATE
-    // IMPORTANTE: Verifica si tu tabla es 'trabajador' o 'trabajadores'
-    // Según tu error anterior, cámbialo al nombre correcto que veas en phpMyAdmin
     $sql = "UPDATE trabajador SET 
                 nombre = :nom, 
                 apellido_p = :ap, 
