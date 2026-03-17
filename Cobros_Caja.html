@@ -1,30 +1,39 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>La Madre Del Caos - Caja</title>
-    <link rel="stylesheet" href="CSS/estilo_caja.css"> <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Open+Sans:wght@300;400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="CSS/estilo_caja.css">
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Open+Sans:wght@300;400;700&display=swap"
+        rel="stylesheet">
 </head>
+
 <body>
     <header class="encabezado">
         <a href="menu_sesion.html">
             <img src="Imágenes/Isotipo.png" alt="Logo La Madre Del Caos">
         </a>
+        <button id="btn-logout" class="btn-cerrar-sesion">
+            Cerrar Sesión
+        </button>
         <h1>Punto de Venta</h1>
+
+
     </header>
 
     <div class="contenedor-caja">
         <div class="panel-controles">
             <select id="selector-productos">
                 <option value="" disabled selected>Seleccione un producto...</option>
-                </select>
+            </select>
             <button id="btn-agregar" class="btn-primario">Agregar +</button>
         </div>
 
         <div class="panel-lista">
             <ul id="lista-cuenta">
-                </ul>
+            </ul>
         </div>
 
         <div class="panel-cobro">
@@ -44,5 +53,40 @@
     </div>
 
     <script src="api/js/lib/caja.js"></script>
+    <script type="module">
+        import { recibeJson } from "./api/js/lib/recibeJson.js";
+        import { consume } from "./api/js/lib/consume.js";
+
+        document.addEventListener("DOMContentLoaded", async () => {
+            try {
+                const respuesta = await consume(recibeJson("api/php/srvSesion.php"));
+                const sesion = await respuesta.json();
+
+                if (!sesion.logeado) {
+                    window.location.href = "iniciar_sesion.html";
+                }
+            } catch (error) {
+                // Si hay error de red o servidor, por seguridad redirigimos
+                window.location.href = "iniciar_sesion.html";
+            }
+
+            // --- 2. LÓGICA DEL BOTÓN DE LOGOUT ---
+            const btnLogout = document.getElementById("btn-logout");
+
+            if (btnLogout) {
+                btnLogout.addEventListener("click", async () => {
+                    if (confirm("¿Seguro que deseas salir del Punto de Venta?")) {
+                        try {
+                            await fetch("api/php/logout.php");
+                            window.location.href = "iniciar_sesion.html";
+                        } catch (error) {
+                            console.error("Error al cerrar sesión", error);
+                        }
+                    }
+                });
+            }
+        });
+    </script>
 </body>
+
 </html>

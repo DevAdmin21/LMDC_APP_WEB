@@ -26,7 +26,7 @@ class ValidadorSesion {
 
                 const rutas = {
                     'repartidor': 'vista_repartidor.html',
-                    'cobrador': 'menu_sesion.html',
+                    'cobrador': 'Cobros_Caja.html',
                     'cliente': 'Perfil.html',
                     'administrador': 'admin_panel.html'
                 };
