@@ -4,11 +4,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mi Cuenta - La Madre Del Caos</title>
+    <title>Mi Perfil - La Madre Del Caos</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-    <link
-        href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap"
-        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet">
 
     <style>
         :root {
@@ -21,17 +19,15 @@
             --texto: 'Open Sans', sans-serif;
         }
 
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
+        * { margin: 0; padding: 0; box-sizing: border-box; }
         body {
             font-family: var(--texto);
             background: var(--negro);
             color: var(--blanco);
             overflow-x: hidden;
+        }
+        a{
+            color: white;
         }
 
         /* --- NAVEGACIÓN --- */
@@ -84,9 +80,7 @@
             transition: 0.3s;
         }
 
-        .navegacion__enlace:hover {
-            color: var(--amarillo-lima);
-        }
+        .navegacion__enlace:hover { color: var(--amarillo-lima); }
 
         .navegacion__enlace--inicio {
             border: 1px solid var(--amarillo-lima);
@@ -104,36 +98,48 @@
 
         .bienvenida {
             text-align: center;
-            margin-bottom: 4rem;
+            margin-bottom: 3rem;
         }
 
-        .perfil-foto {
-            width: 160px;
-            height: 160px;
+        .perfil-icono-contenedor {
+            width: 150px;
+            height: 150px;
+            background-color: var(--negro);
+            color: var(--amarillo-lima);
             border-radius: 50%;
-            object-fit: cover;
-            border: 6px solid var(--negro);
-            margin-bottom: 20px;
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+            margin: 0 auto 20px auto;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
         }
 
         .subitulo {
             font-family: var(--titulo);
-            font-size: clamp(35px, 6vw, 55px);
+            font-size: clamp(30px, 5vw, 50px);
             color: var(--negro);
+            line-height: 1.1;
         }
 
-        .subitulo3 {
-            font-size: 1.2rem;
+        .info-contacto-rapida {
+            margin-top: 15px;
+            display: flex;
+            justify-content: center;
+            gap: 20px;
             color: #555;
-            margin-top: 10px;
+            font-weight: 600;
         }
 
-        /* --- CARDS DE OPCIONES --- */
+        .info-contacto-rapida i {
+            color: var(--rojo-oscuro);
+            margin-right: 5px;
+        }
+
+        /* --- CARDS --- */
         .menu-opciones {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
             max-width: 1200px;
             margin: 0 auto;
         }
@@ -142,58 +148,41 @@
             background: #fff;
             border: 1px solid var(--gris-borde);
             border-radius: 15px;
-            padding: 40px 25px;
+            padding: 35px 25px;
             text-align: center;
-            transition: 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            transition: 0.3s ease;
         }
 
         .opcion-card:hover {
-            transform: translateY(-12px);
+            transform: translateY(-8px);
             border-color: var(--amarillo-lima);
-            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.08);
         }
 
         .opcion-card i {
-            font-size: 3.5rem;
+            font-size: 3rem;
             color: var(--rojo-oscuro);
-            margin-bottom: 20px;
-        }
-
-        .galeria__texto {
-            font-family: var(--titulo);
-            font-size: 2.2rem;
             margin-bottom: 15px;
         }
 
-        .galeria__descripcion {
-            color: #666;
-            margin-bottom: 30px;
-            line-height: 1.6;
-        }
+        .galeria__texto { font-family: var(--titulo); font-size: 2rem; margin-bottom: 10px; }
 
         .btn-opcion {
             display: inline-block;
             background: var(--negro);
             color: var(--blanco);
             text-decoration: none;
-            padding: 12px 30px;
+            padding: 12px;
             font-family: var(--titulo);
-            font-size: 1.2rem;
+            font-size: 1.1rem;
             border-radius: 5px;
             width: 100%;
-            transition: 0.3s;
-        }
-
-        .btn-opcion:hover {
-            background: var(--amarillo-lima);
-            color: var(--negro);
         }
 
         /* --- FOOTER --- */
         .footer {
             background-color: var(--negro);
             color: var(--blanco);
-            padding: 4rem 5% 2rem 5%;
+            padding: 3rem 5% 2rem 5%;
         }
 
         .footer__container {
@@ -201,35 +190,14 @@
             margin: 0 auto;
             display: flex;
             justify-content: space-between;
-            align-items: flex-start;
+            align-items: center;
             flex-wrap: wrap;
-            gap: 3rem;
         }
 
-        .footer__brand {
-            font-family: var(--titulo);
-            font-size: 2.5rem;
-            color: var(--amarillo-lima);
-            margin-bottom: 1rem;
-        }
+        .footer__brand { font-family: var(--titulo); font-size: 2rem; color: var(--amarillo-lima); }
 
-        .footer_icon {
-            color: var(--blanco);
-            font-size: 1.6rem;
-            margin-right: 20px;
-            transition: 0.3s;
-        }
-
-        .footer_icon:hover {
-            color: var(--amarillo-lima);
-        }
-
-        /* --- RESPONSIVE --- */
         @media (max-width: 950px) {
-            .navegacion__boton {
-                display: block;
-            }
-
+            .navegacion__boton { display: block; }
             .navegacion__menu {
                 position: fixed;
                 top: 0;
@@ -239,16 +207,8 @@
                 background: var(--negro);
                 flex-direction: column;
                 justify-content: center;
-                transition: 0.4s ease-in-out;
             }
-
-            .navegacion__menu--activo {
-                left: 0;
-            }
-
-            .navegacion__enlace {
-                font-size: 2rem;
-            }
+            .navegacion__menu--activo { left: 0; }
         }
     </style>
 </head>
@@ -261,17 +221,13 @@
                     <img src="Imágenes/Isotipo.png" alt="Logo" class="navegacion__logo-img">
                 </a>
                 <button class="navegacion__boton" id="btn-menu">
-                    <i class="fa-solid fa-bars" id="icono-interfaz"></i>
+                    <i class="fa-solid fa-bars"></i>
                 </button>
                 <ul class="navegacion__menu" id="menu-desplegable">
-                    <li><a href="index.html" class="navegacion__enlace">Inicio</a></li>
-                    <li><a href="menu.html" class="navegacion__enlace">Menú</a></li>
-                    <li><a href="ofertas.html" class="navegacion__enlace">Ofertas</a></li>
-                    <li><a href="eventos.html" class="navegacion__enlace">Eventos</a></li>
+                    <li><a href="index_sesion.html" class="navegacion__enlace">Inicio</a></li>
+                    <li><a href="menu_sesion.html" class="navegacion__enlace">Menú</a></li>
                     <li><a href="ConsultarBarriles.html" class="navegacion__enlace">Barriles</a></li>
-                    <li><a href="mispedidos.html" class="navegacion__enlace">Pedidos</a></li>
-                    <li><a href="iniciar_sesion.html" class="navegacion__enlace navegacion__enlace--inicio">Cerrar
-                            Sesión</a></li>
+                    <li><a href="api/php/logout.php" class="navegacion__enlace navegacion__enlace--inicio">Cerrar Sesión</a></li>
                 </ul>
             </div>
         </nav>
@@ -279,68 +235,82 @@
 
     <main class="usuario-container">
         <div class="bienvenida">
-            <img src="Imágenes/26.jpeg" alt="Foto de perfil" class="perfil-foto">
-            <h2 class="subitulo">¡BIENVENIDO/A DARECK FERNANDEZ!</h2>
-            <p class="subitulo3">Gestiona tus antojos y datos personales desde aquí.</p>
+            <div class="perfil-icono-contenedor">
+                <svg xmlns="http://www.w3.org/2000/svg" width="70" height="70" fill="currentColor" viewBox="0 0 16 16">
+                    <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z"/>
+                    <path fill-rule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z"/>
+                </svg>
+            </div>
+            <h2 class="subitulo" id="cliente-nombre">CARGANDO...</h2>
+            
+            <div class="info-contacto-rapida">
+                <span><i class="fa-solid fa-envelope"></i> <span id="info-correo">---</span></span>
+                <span><i class="fa-solid fa-phone"></i> <span id="info-telefono">---</span></span>
+            </div>
         </div>
 
         <div class="menu-opciones">
             <div class="opcion-card">
                 <i class="fas fa-shopping-cart"></i>
                 <h3 class="galeria__texto">Hacer Pedido</h3>
-                <p class="galeria__descripcion">Explora nuestro menú y realiza tu pedido de comida casera favorita.</p>
-                <a href="menu_sesion.html" class="btn-opcion">Ver Menú</a>
+                <a href="menu.html" class="btn-opcion">Ir al Menú</a>
             </div>
-
-            <div class="opcion-card">
+            <!-- <div class="opcion-card">
                 <i class="fas fa-receipt"></i>
                 <h3 class="galeria__texto">Mis Pedidos</h3>
-                <p class="galeria__descripcion">Consulta el estado de tus pedidos actuales y el historial de compras.
-                </p>
                 <a href="mispedidos.html" class="btn-opcion">Ver Historial</a>
             </div>
-
             <div class="opcion-card">
                 <i class="fas fa-user-cog"></i>
                 <h3 class="galeria__texto">Mi Perfil</h3>
-                <p class="galeria__descripcion">Actualiza tu información personal, dirección y preferencias.</p>
                 <a href="Editar_Perfil.html" class="btn-opcion">Editar Datos</a>
-            </div>
+            </div> -->
         </div>
     </main>
 
     <footer class="footer">
-        <div class="footer__container">
-            <div class="footer__info">
-                <h3 class="footer__brand">La madre del caos</h3>
-                <p>Golondrinas #116 Nezahualcóyotl</p>
-                <p>Teléfono: 341 439 4591</p>
-                <div style="margin-top: 20px;">
-                    <a href="#" class="footer_icon"><i class="fa-brands fa-whatsapp"></i></a>
-                    <a href="#" class="footer_icon"><i class="fa-brands fa-tiktok"></i></a>
-                    <a href="#" class="footer_icon"><i class="fa-brands fa-facebook"></i></a>
-                    <a href="#" class="footer_icon"><i class="fa-brands fa-instagram"></i></a>
-                </div>
-            </div>
-            <div class="footer__rights">
-                <p>Todos los derechos reservados ©BitBang</p>
+    <div class="footer__container">
+        <div class="footer__info">
+            <h3 class="footer__brand">La madre del caos</h3>
+            <p class="footer__text">Golondrinas #116 Nezahualcóyotl</p>
+            <p class="footer__text">Teléfono: 341 439 4591</p>
+            
+            <div class="footer__icons">
+                <a href="#" class="footer_icon" target="_blank"><i class="fa-brands fa-whatsapp"></i></a>
+                <a href="#" class="footer_icon" target="_blank"><i class="fa-brands fa-tiktok"></i></a>
+                <a href="#" class="footer_icon" target="_blank"><i class="fa-brands fa-facebook"></i></a>
+                <a href="#" class="footer_icon" target="_blank"><i class="fa-brands fa-instagram"></i></a>
             </div>
         </div>
-    </footer>
-//Permite mostrar el carrito en el nav mientras exista una sesión activa
-    <script src="js/menu.js"></script>
-    <script type="module" src="api/js/MenuDinamico.js"></script>
-</body>
-</html>
-    <script type="module">
-        import { autorizar } from "./api/js/lib/autorizar.js";
 
-        document.addEventListener("DOMContentLoaded", async () => {
-            // Solo permitimos al cliente
-            const usuario = await autorizar(['cliente']);
-            if (usuario) {
-                console.log("Hola")
-            }
+        <div class="footer__rights">
+            <p class="footer__rights-text">Todos los derechos reservados ©BitBang</p>
+        </div>
+    </div>
+</footer>
+
+    <script src="js/menu.js"></script>
+    <script>
+        // Lógica para obtener datos usando tu API PHP
+        document.addEventListener("DOMContentLoaded", () => {
+            fetch('api/php/consultar_perfil.php')
+                .then(res => res.json())
+                .then(usuario => {
+                    if (usuario.error) {
+                        console.error(usuario.error);
+                        return;
+                    }
+                    const nombreComp = `${usuario.nombre} ${usuario.apellido_p} ${usuario.apellido_m || ''}`;
+                    document.getElementById("cliente-nombre").textContent = `¡BIENVENIDO/A ${nombreComp.toUpperCase()}!`;
+                    document.getElementById("info-correo").textContent = usuario.correo;
+                    document.getElementById("info-telefono").textContent = usuario.telefono || "No registrado";
+                })
+                .catch(err => console.error("Error al cargar perfil:", err));
+
+            // Toggle móvil
+            const btn = document.getElementById('btn-menu');
+            const menu = document.getElementById('menu-desplegable');
+            btn?.addEventListener('click', () => menu.classList.toggle('navegacion__menu--activo'));
         });
     </script>
 </body>
