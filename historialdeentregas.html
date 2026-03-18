@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Historial de Entregas - La Madre del Caos</title>
+
+<link rel="stylesheet" href="CSS/Estilo_mispedidos.css">
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Open+Sans&display=swap" rel="stylesheet">
+
+</head>
+
+<body>
+
+<header class="encabezado">
+<nav class="navegacion">
+
+<div class="navegacion__barra">
+
+<a href="index_sesion.html" class="navegacion__logotipo">
+<img src="Imágenes/Isotipo.png" alt="Logo" class="navegacion__logo-img">
+</a>
+
+<button class="navegacion__boton" id="btn-menu">
+<i class="fa-solid fa-bars" id="icono-interfaz"></i>
+</button>
+
+        <ul class="navegacion__menu" id="menu-desplegable">
+            <li class="navegacion__item"><a href="vista_repartidor.html" class="navegacion__enlace">Inicio</a></li>
+            <li class="navegacion__item"><a href="mispedidosrepartidor.html" class="navegacion__enlace">Pedidos Asignados</a></li>
+            <li class="navegacion__item"><a href="historialdeentregas.html" class="navegacion__enlace">Historial de Entregas</a></li>
+            <li class="navegacion__item"><a href="perfilRepartidor.html" class="navegacion__enlace">Perfil</a></li>
+            <li><a href="iniciar_sesion.html" class="navegacion__enlace navegacion__enlace--inicio">Cerrar Sesión</a></li>
+
+        </ul>
+
+</div>
+</nav>
+</header>
+
+<main class="pedidos-container">
+
+<div class="titulo-seccion">
+
+<h2 class="subitulo">
+<i class="fas fa-history"></i> Historial de Entregas
+</h2>
+
+<p class="subitulo3">
+Aquí puedes ver todos los pedidos que ya entregaste.
+</p>
+
+</div>
+
+<div class="lista-pedidos">
+
+
+<!-- ENTREGA 1 -->
+
+<div class="pedido-card">
+
+<div class="pedido-header">
+
+<div class="pedido-info">
+<h3 class="galeria__texto">Pedido #001</h3>
+<span class="fecha">15 Julio 2025 - 13:40</span>
+</div>
+
+<div class="estado entregado">
+<i class="fas fa-check-circle"></i> Entregado
+</div>
+
+</div>
+
+<div class="pedido-items">
+
+<div class="item">
+<p><span class="cantidad">1x</span> Chicharrón Estilo Colombiano</p>
+<span class="precio">$450.00</span>
+</div>
+
+<div class="item">
+<p><span class="cantidad">1x</span> Guacamole Extra</p>
+<span class="precio">$25.00</span>
+</div>
+
+</div>
+
+<div class="pedido-total">
+Total: $475.00
+</div>
+
+</div>
+
+
+<!-- ENTREGA 2 -->
+
+<div class="pedido-card">
+
+<div class="pedido-header">
+
+<div class="pedido-info">
+<h3 class="galeria__texto">Pedido #002</h3>
+<span class="fecha">Hoy - 14:55</span>
+</div>
+
+<div class="estado entregado">
+<i class="fas fa-check-circle"></i> Entregado
+</div>
+
+</div>
+
+<div class="pedido-items">
+
+<div class="item">
+<p><span class="cantidad">2x</span> Hamburguesa Doble Caos</p>
+<span class="precio">$200.00</span>
+</div>
+
+</div>
+
+<div class="pedido-total">
+Total: $200.00
+</div>
+
+</div>
+
+</div>
+
+</main>
+
+<footer class="footer">
+
+<div class="footer__container">
+
+<div class="footer__info">
+
+<h3 class="footer__brand">La madre del caos</h3>
+
+<p class="footer__text">
+Golondrinas #116 Nezahualcóyotl
+</p>
+
+<p class="footer__text">
+Teléfono: 341 439 4591
+</p>
+
+<div class="footer__icons">
+
+<a href="#" class="footer_icon"><i class="fa-brands fa-whatsapp"></i></a>
+
+<a href="#" class="footer_icon"><i class="fa-brands fa-tiktok"></i></a>
+
+<a href="#" class="footer_icon"><i class="fa-brands fa-facebook"></i></a>
+
+<a href="#" class="footer_icon"><i class="fa-brands fa-instagram"></i></a>
+
+</div>
+
+</div>
+
+<div class="footer__rights">
+
+<p class="footer__rights-text">
+Todos los derechos reservados ©BitBang
+</p>
+
+</div>
+
+</div>
+
+</footer>
+
+<script>
+
+const btnMenu = document.getElementById('btn-menu');
+const menu = document.getElementById('menu-desplegable');
+const icono = document.getElementById('icono-interfaz');
+
+btnMenu.addEventListener('click', () => {
+
+menu.classList.toggle('navegacion__menu--activo');
+
+if(menu.classList.contains('navegacion__menu--activo')){
+icono.classList.replace('fa-bars','fa-xmark');
+}else{
+icono.classList.replace('fa-xmark','fa-bars');
+}
+
+});
+
+</script>
+
+</body>
+</html>

@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Perfil de Empleado - La Madre Del Caos</title>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Open+Sans&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="CSS/Estilo.hamburguesa.css">
+    <link rel="stylesheet" href="CSS/Estilo_editar_perfil.css">
+
+    <style>
+        :root {
+            --dorado: #c1a35f;
+            --negro-suave: #1a1a1a;
+            --gris-input: #2a2a2a;
+        }
+
+        body {
+            background: #000;
+            color: #fff;
+            font-family: 'Open Sans', sans-serif;
+            margin: 0;
+        }
+
+        .perfil {
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            margin-top: 120px;
+            margin-bottom: 50px;
+        }
+
+        .container {
+            background: var(--negro-suave);
+            padding: 30px;
+            border-radius: 15px;
+            border: 1px solid var(--dorado);
+            max-width: 900px;
+            width: 100%;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+        }
+
+        .container header {
+            font-family: 'Bebas Neue', cursive;
+            font-size: 2.5rem;
+            color: var(--dorado);
+            text-align: center;
+            margin-bottom: 20px;
+            letter-spacing: 2px;
+        }
+
+        .input-box label {
+            color: var(--dorado);
+            font-weight: bold;
+            display: block;
+            margin-top: 15px;
+            margin-bottom: 5px;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+        }
+
+        .input-box input, 
+        .select-box select {
+            width: 100%;
+            padding: 12px;
+            background: var(--gris-input);
+            border: 1px solid #444;
+            color: #fff;
+            border-radius: 5px;
+            outline: none;
+            font-size: 1rem;
+            box-sizing: border-box;
+        }
+
+        .select-box {
+            position: relative;
+            width: 100%;
+        }
+
+        .select-box select {
+            appearance: none;
+            -webkit-appearance: none;
+            cursor: pointer;
+        }
+
+        .select-box::after {
+            content: '\25BC';
+            position: absolute;
+            top: 50%;
+            right: 15px;
+            transform: translateY(-50%);
+            color: var(--dorado);
+            pointer-events: none;
+            font-size: 0.8rem;
+        }
+
+        .column {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .column .input-box {
+            flex: 1;
+            min-width: 250px;
+        }
+
+        #enviar {
+            margin-top: 30px;
+            width: 100%;
+            padding: 15px;
+            background: var(--dorado);
+            border: none;
+            color: #000;
+            font-family: 'Bebas Neue', cursive;
+            font-size: 1.5rem;
+            cursor: pointer;
+            border-radius: 5px;
+            transition: all 0.3s ease;
+        }
+
+        #enviar:hover {
+            background: #fff;
+            transform: scale(1.01);
+        }
+
+        input[type="date"]::-webkit-calendar-picker-indicator {
+            filter: invert(1) sepia(100%) saturate(500%) hue-rotate(10deg);
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+
+    <header class="navegacion">
+        <div class="navegacion__barra">
+            <a href="index_sesion.html" class="navegacion__logotipo">
+                <img src="Imágenes/Isotipo.png" alt="Logo" class="navegacion__logo-img">
+            </a>
+            <button id="btn-menu" class="navegacion__boton">
+                <i id="icono-interfaz" class="fa-solid fa-bars"></i>
+            </button>
+            <ul class="navegacion__menu" id="menu-desplegable">
+                <li class="navegacion__item"><a href="vista_repartidor.html" class="navegacion__enlace">Inicio</a></li>
+                <li class="navegacion__item"><a href="mispedidosrepartidor.html" class="navegacion__enlace">Pedidos Asignados</a></li>
+                <li class="navegacion__item"><a href="historialdeentregas.html" class="navegacion__enlace">Historial de Entregas</a></li>
+                <li class="navegacion__item"><a href="perfilRepartidor.html" class="navegacion__enlace">Perfil</a></li>
+                <li><a href="iniciar_sesion.html" class="navegacion__enlace navegacion__enlace--inicio">Cerrar Sesión</a></li>
+            </ul>
+        </div>
+    </header>
+
+    <main class="perfil">
+        <section class="container">
+            <header>PERFIL DE EMPLEADO</header>
+<form class="form" id="formEmpleado">
+    <div class="column">
+        <div class="input-box">
+            <label>ID TRABAJADOR</label>
+            <input type="text" id="id_trabajador" name="id_trabajador" readonly style="opacity: 0.7; cursor: not-allowed;">
+        </div>
+        <div class="input-box">
+            <label>ROL</label>
+            <div class="select-box">
+                <select id="rol" name="rol" disabled style="opacity: 0.7; cursor: not-allowed;">
+                    <option value="REPARTIDOR">REPARTIDOR</option>
+                    <option value="COBRADOR">COBRADOR</option>
+                </select>
+            </div>
+        </div>
+    </div>
+
+    <div class="column">
+        <div class="input-box">
+            <label>NOMBRE</label>
+            <input type="text" id="nombre" name="nombre" readonly style="opacity: 0.7; cursor: not-allowed;">
+        </div>
+        <div class="input-box">
+            <label>APELLIDO PATERNO</label>
+            <input type="text" id="apellido_p" name="apellido_p" readonly style="opacity: 0.7; cursor: not-allowed;">
+        </div>
+    </div>
+
+    <div class="column">
+        <div class="input-box">
+            <label>TELÉFONO (EDITABLE)</label>
+            <input type="text" id="telefono" name="telefono" placeholder="Ingresa tu nuevo teléfono">
+        </div>
+        <div class="input-box">
+            <label>FECHA DE CONTRATACIÓN</label>
+            <input type="date" id="fecha_contratacion" name="fecha_contratacion" readonly style="opacity: 0.7; cursor: not-allowed;">
+        </div>
+    </div>
+
+    <input type="submit" value="ACTUALIZAR TELÉFONO" id="enviar">
+</form>
+        </section>
+    </main>
+
+    <script src="js/menu.js"></script>
+
+    <script>
+        // 1. CARGAR DATOS AL INICIAR LA PÁGINA
+        document.addEventListener('DOMContentLoaded', async () => {
+            try {
+                // Fetch al PHP que devuelve los datos de la BD
+                const respuesta = await fetch("api/php/obtenerPerfil.php");
+                const resultado = await respuesta.json();
+
+                if (resultado.exito) {
+                    const datos = resultado.datos;
+                    // Llenar los campos usando sus IDs
+                    document.getElementById('id_trabajador').value = datos.id_trabajador;
+                    document.getElementById('rol').value = datos.rol;
+                    document.getElementById('nombre').value = datos.nombre;
+                    document.getElementById('apellido_p').value = datos.apellido_p;
+                    document.getElementById('telefono').value = datos.telefono;
+                    document.getElementById('fecha_contratacion').value = datos.fecha_contratacion;
+                } else {
+                    alert("Error al cargar perfil: " + resultado.mensaje);
+                    window.location.href = "iniciar_sesion.html";
+                }
+            } catch (error) {
+                console.error("Error:", error);
+                alert("Hubo un problema al conectar con el servidor.");
+            }
+        });
+
+        // 2. PROCESAR GUARDADO DE CAMBIOS
+        document.getElementById('formEmpleado').addEventListener('submit', async function(e) {
+            e.preventDefault();
+            const formData = new FormData(this);
+
+            try {
+                const respuesta = await fetch("api/php/procesarCambios.php", {
+                    method: "POST",
+                    body: formData
+                });
+
+                const resultado = await respuesta.json();
+                if (resultado.exito) {
+                    alert("Cambios guardados correctamente.");
+                } else {
+                    alert("Error: " + resultado.mensaje);
+                }
+            } catch (error) {
+                console.error(error);
+                alert(" Error de conexión.");
+            }
+        });
+    </script>
+
+</body>
+</html>

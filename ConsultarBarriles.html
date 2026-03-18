@@ -10,6 +10,119 @@
     <link
         href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap"
         rel="stylesheet">
+    <style>
+       .modal{
+display:none;
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100%;
+background:rgba(0,0,0,0.75);
+backdrop-filter: blur(5px);
+justify-content:center;
+align-items:center;
+z-index:1000;
+animation: fadeIn 0.3s ease;
+}
+
+/* CONTENIDO */
+.modal-contenido{
+background:white;
+padding:35px;
+border-radius:15px;
+max-width:420px;
+width:90%;
+text-align:center;
+position:relative;
+box-shadow:0 15px 40px rgba(0,0,0,0.35);
+animation: scaleIn 0.3s ease;
+font-family: "Open Sans", sans-serif;
+}
+
+/* IMAGEN */
+.modal-img{
+width:220px;
+max-width:100%;
+margin-bottom:15px;
+border-radius:10px;
+}
+
+/* TITULO */
+#modalTitulo{
+font-family:"Bebas Neue", sans-serif;
+font-size:32px;
+letter-spacing:1px;
+margin-bottom:10px;
+color:#222;
+}
+
+/* DESCRIPCION */
+#modalDescripcion{
+font-size:15px;
+line-height:1.6;
+color:#444;
+}
+
+/* PRECIO */
+.precio-modal{
+font-size:22px;
+font-weight:bold;
+margin-top:15px;
+color:#c0392b;
+}
+
+/* BOTON COMPRAR */
+.boton-comprar{
+margin-top:20px;
+padding:12px 25px;
+border:none;
+border-radius:8px;
+background:#c0392b;
+color:white;
+font-size:16px;
+cursor:pointer;
+transition:0.3s;
+}
+
+.boton-comprar:hover{
+background:#a93226;
+transform:scale(1.05);
+}
+
+/* BOTON CERRAR */
+#cerrarModal{
+position:absolute;
+top:12px;
+right:15px;
+font-size:28px;
+cursor:pointer;
+color:#555;
+transition:0.2s;
+}
+
+#cerrarModal:hover{
+color:#c0392b;
+transform:scale(1.2);
+}
+
+/* ANIMACIONES */
+@keyframes fadeIn{
+from{opacity:0;}
+to{opacity:1;}
+}
+
+@keyframes scaleIn{
+from{
+opacity:0;
+transform:scale(0.8);
+}
+to{
+opacity:1;
+transform:scale(1);
+}
+}
+    </style>
 </head>
 
 <body>
@@ -43,34 +156,37 @@
         <h2 class="subitulo">Los mejores Barriles</h2>
         <p class="galeria__descripcion">Para tus mejores Asados...</p>
         <div class="galeria__row">
-            <div class="galeria__item">
-                <a href="BarrilJupiter.html" class="galeria__enlace">
-                    <img src="Imágenes/Barriles/GIGANT1.png" alt="Consumibles" class="galeria__img">
-                    <p class="galeria__texto">Barril Jupiter</p>
-                    <p class="galeria__descripcion">$1,379.900</p>
-                </a>
-            </div>
-            <div class="galeria__item">
-                <a href="BarrilOlympus.html" class="galeria__enlace">
-                    <img src="Imágenes/Barriles/GRAND.png" alt="Bebidas" class="galeria__img">
-                    <p class="galeria__texto">Barril Olympus</p>
-                    <p class="galeria__descripcion">$1,099.900</p>
-                </a>
-            </div>
-            <div class="galeria__item">
-                <a href="BarrilMarte.html" class="galeria__enlace">
-                    <img src="Imágenes/Barriles/MEDIAN.png" alt="Extras" class="galeria__img">
-                    <p class="galeria__texto">Barril Marte</p>
-                    <p class="galeria__descripcion">$819.900</p>
-                </a>
-            </div>
-            <div class="galeria__item">
-                <a href="BarrilMercury.html" class="galeria__enlace">
-                    <img src="Imágenes/Barriles/PQÑO.png" alt="Extras" class="galeria__img">
-                    <p class="galeria__texto">Barril Mercury</p>
-                    <p class="galeria__descripcion">$679.900</p>
-                </a>
-            </div>
+           <div class="galeria__item">
+    <a href="#" class="galeria__enlace barril" data-barril="jupiter">
+        <img src="Imágenes/Barriles/GIGANT1.png" class="galeria__img">
+        <p class="galeria__texto">Barril Jupiter</p>
+        <p class="galeria__descripcion">$1,379.900</p>
+    </a>
+</div>
+
+<div class="galeria__item">
+    <a href="#" class="galeria__enlace barril" data-barril="olympus">
+        <img src="Imágenes/Barriles/GRAND.png" class="galeria__img">
+        <p class="galeria__texto">Barril Olympus</p>
+        <p class="galeria__descripcion">$1,099.900</p>
+    </a>
+</div>
+
+<div class="galeria__item">
+    <a href="#" class="galeria__enlace barril" data-barril="marte">
+        <img src="Imágenes/Barriles/MEDIAN.png" class="galeria__img">
+        <p class="galeria__texto">Barril Marte</p>
+        <p class="galeria__descripcion">$819.900</p>
+    </a>
+</div>
+
+<div class="galeria__item">
+    <a href="#" class="galeria__enlace barril" data-barril="mercury">
+        <img src="Imágenes/Barriles/PQÑO.png" class="galeria__img">
+        <p class="galeria__texto">Barril Mercury</p>
+        <p class="galeria__descripcion">$679.900</p>
+    </a>
+</div>
         </div>
     </div>
     <footer class="footer">
@@ -95,6 +211,29 @@
     </footer>
     <script type="module" src="api/js/MenuDinamico.js"></script>
     <script src="js/menu.js"></script>
+<<<<<<< HEAD
+    <script type="module" src="api/js/MenuDinamico.js"></script>
+</body>
+</html>
+=======
+    <script src="js/barriles.js"></script>
+    
+    <div id="modalBarril" class="modal">
+    <div class="modal-contenido">
+        <span id="cerrarModal">&times;</span>
+
+        <img id="modalImg" class="modal-img">
+
+        <h2 id="modalTitulo"></h2>
+
+        <div id="modalDescripcion"></div>
+
+        <p id="modalPrecio" class="precio-modal"></p>
+
+        <button class="boton-comprar">Comprar</button>
+    </div>
+</div>
+>>>>>>> d3b73a00fa9a8411c685e8596dfd12fcc50b0af6
 </body>
 
 </html>
