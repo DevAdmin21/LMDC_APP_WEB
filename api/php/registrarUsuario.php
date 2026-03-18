@@ -21,7 +21,6 @@ function registrarUsuario($datos) {
         $id_cliente = $pdo->lastInsertId();
 
         // 2. Insertar en la tabla 'direccion'
-        // Se quitaron las columnas que daban error (entidad, colonia, referencias)
         $sqlD = "INSERT INTO direccion (calle, num_int, num_ext, municipio, codigo_postal, id_cliente) 
                  VALUES (:calle, :ni, :ne, :mun, :cp, :id_cli)";
         $stD = $pdo->prepare($sqlD);
@@ -34,14 +33,14 @@ function registrarUsuario($datos) {
             ":id_cli" => $id_cliente
         ]);
 
-        // 3. Insertar en la tabla 'usuario'
-        $passHash = password_hash($datos["contrasena"], PASSWORD_BCRYPT);
+        // 3. Insertar en la tabla 'usuario' (SIN ENCRIPTAR)
+        // Eliminamos la línea de password_hash y usamos $datos["contrasena"] directamente
         $sqlU = "INSERT INTO usuario (correo, contrasena, id_cliente) 
                  VALUES (:cor, :pass, :id_cli)";
         $stU = $pdo->prepare($sqlU);
         $stU->execute([
             ":cor"    => $datos["correo"],
-            ":pass"   => $passHash,
+            ":pass"   => $datos["contrasena"], // <--- Texto plano
             ":id_cli" => $id_cliente
         ]);
 
