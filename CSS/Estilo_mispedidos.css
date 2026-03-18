@@ -124,7 +124,7 @@ body {
     border-radius: 12px;
     padding: 25px;
     transition: transform 0.3s ease;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
 }
 
 .pedido-card:hover {
@@ -159,8 +159,15 @@ body {
     font-weight: 700;
 }
 
-.entregado { background: #d4edda; color: #155724; }
-.en-proceso { background: #fff3cd; color: #856404; }
+.entregado {
+    background: #d4edda;
+    color: #155724;
+}
+
+.en-proceso {
+    background: #fff3cd;
+    color: #856404;
+}
 
 .pedido-items {
     margin-bottom: 20px;
@@ -238,20 +245,86 @@ body {
     transition: 0.3s;
 }
 
-.footer_icon:hover { color: var(--amarillo-lima); }
+.footer_icon:hover {
+    color: var(--amarillo-lima);
+}
 
 /* --- RESPONSIVE --- */
 @media (max-width: 950px) {
-    .navegacion__boton { display: block; }
+    .navegacion__boton {
+        display: block;
+    }
+
     .navegacion__menu {
         position: fixed;
-        top: 0; left: 100%;
-        width: 100%; height: 100vh;
+        top: 0;
+        left: 100%;
+        width: 100%;
+        height: 100vh;
         background: var(--negro);
         flex-direction: column;
         justify-content: center;
         transition: 0.4s;
     }
-    .navegacion__menu--activo { left: 0; }
-    .navegacion__enlace { font-size: 1.8rem; }
+
+    .navegacion__menu--activo {
+        left: 0;
+    }
+
+    .navegacion__enlace {
+        font-size: 1.8rem;
+    }
+}
+
+.boton-entregar {
+    background: #28a745;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: bold;
+    width: 100%;
+}
+
+.boton-entregar:hover {
+    background: #218838;
+}
+
+.seccion-titulo {
+    margin-top: 40px;
+}
+
+.entregados .pedido-card {
+    opacity: .85;
+    border: 1px solid #28a745;
+}
+
+/* 🔔 NOTIFICACIÓN ARRIBA */
+.mensaje {
+    position: fixed;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: #28a745;
+    color: #fff;
+    padding: 14px 22px;
+    border-radius: 10px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, .35);
+    font-weight: bold;
+    display: none;
+    z-index: 9999;
+    animation: slideDown .4s ease;
+}
+
+@keyframes slideDown {
+    from {
+        transform: translate(-50%, -30px);
+        opacity: 0;
+    }
+
+    to {
+        transform: translate(-50%, 0);
+        opacity: 1;
+    }
 }

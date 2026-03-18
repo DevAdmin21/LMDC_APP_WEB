@@ -1,233 +1,194 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Mis Pedidos - La Madre Del Caos</title>
-
-<link rel="stylesheet" href="CSS/Estilo_mispedidos.css">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet">
-
-<style>
-.boton-entregar{
-    background:#28a745;
-    color:white;
-    border:none;
-    padding:10px 15px;
-    border-radius:6px;
-    cursor:pointer;
-    font-weight:bold;
-    width:100%;
-}
-.boton-entregar:hover{ background:#218838; }
-
-.seccion-titulo{ margin-top:40px; }
-
-.entregados .pedido-card{
-    opacity:.85;
-    border:1px solid #28a745;
-}
-
-/* 🔔 NOTIFICACIÓN ARRIBA */
-.mensaje{
-    position:fixed;
-    top:20px;
-    left:50%;
-    transform:translateX(-50%);
-    background:#28a745;
-    color:#fff;
-    padding:14px 22px;
-    border-radius:10px;
-    box-shadow:0 8px 25px rgba(0,0,0,.35);
-    font-weight:bold;
-    display:none;
-    z-index:9999;
-    animation:slideDown .4s ease;
-}
-
-@keyframes slideDown{
-    from{ transform:translate(-50%,-30px); opacity:0; }
-    to{ transform:translate(-50%,0); opacity:1; }
-}
-</style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gestión de Entregas - La Madre Del Caos</title>
+    <link rel="stylesheet" href="CSS/Estilo_mispedidos.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Open+Sans:wght@300;400;700&display=swap" rel="stylesheet">
+    <style>
+        /* Estilos adicionales para los estados */
+        .boton-aceptar { background: #EAF158; color: black; border: none; padding: 12px; border-radius: 6px; cursor: pointer; font-weight: bold; width: 100%; margin-top: 10px; }
+        .boton-entregar { background: #28a745; color: white; border: none; padding: 12px; border-radius: 6px; cursor: pointer; font-weight: bold; width: 100%; }
+        .pedido-card { border-left: 5px solid #EAF158; margin-bottom: 20px; transition: transform 0.2s; }
+        .pedido-card:hover { transform: scale(1.01); }
+        .referencia-texto { font-style: italic; color: #aaa; font-size: 0.9em; }
+        .badge-estado { background: #444; padding: 4px 8px; border-radius: 4px; font-size: 0.8em; }
+    </style>
 </head>
-
 <body>
 
-<header class="encabezado">
-<nav class="navegacion">
-<div class="navegacion__barra">
+    <header class="encabezado">
+        <nav class="navegacion">
+            <div class="navegacion__barra">
+                <a href="index_sesion.html" class="navegacion__logotipo">
+                    <img src="Imágenes/Isotipo.png" alt="Logo" class="navegacion__logo-img">
+                </a>
+                <button class="navegacion__boton" id="btn-menu">
+                    <i class="fa-solid fa-bars" id="icono-interfaz"></i>
+                </button>
+                <ul class="navegacion__menu" id="menu-desplegable">
+                    <li class="navegacion__item"><a href="vista_repartidor.html" class="navegacion__enlace">Inicio</a></li>
+                    <li class="navegacion__item"><a href="mispedidosrepartidor.html" class="navegacion__enlace">Pedidos Disponibles</a></li>
+                    <li class="navegacion__item"><a href="perfilRepartidor.html" class="navegacion__enlace">Perfil</a></li>
+                    <li><a href="iniciar_sesion.html" class="navegacion__enlace navegacion__enlace--inicio">Cerrar Sesión</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
 
-<a href="index_sesion.html" class="navegacion__logotipo">
-<img src="Imágenes/Isotipo.png" alt="Logo" class="navegacion__logo-img">
-</a>
+    <main class="pedidos-container">
+        <div class="titulo-seccion">
+            <h2 class="subitulo"><i class="fas fa-bullhorn"></i> Pedidos Disponibles</h2>
+            <p class="subitulo3">Pedidos pendientes de repartidor.</p>
+        </div>
+        <div class="lista-pedidos" id="lista-disponibles">
+            </div>
 
-<button class="navegacion__boton" id="btn-menu">
-<i class="fa-solid fa-bars" id="icono-interfaz"></i>
-</button>
-        <ul class="navegacion__menu" id="menu-desplegable">
-            <li class="navegacion__item"><a href="vista_repartidor.html" class="navegacion__enlace">Inicio</a></li>
-            <li class="navegacion__item"><a href="mispedidosrepartidor.html" class="navegacion__enlace">Pedidos Asignados</a></li>
-            <li class="navegacion__item"><a href="historialdeentregas.html" class="navegacion__enlace">Historial de Entregas</a></li>
-            <li class="navegacion__item"><a href="perfilRepartidor.html" class="navegacion__enlace">Perfil</a></li>
-            <li><a href="iniciar_sesion.html" class="navegacion__enlace navegacion__enlace--inicio">Cerrar Sesión</a></li>
+        <hr style="border: 1px solid #333; margin: 40px 0;">
 
-        </ul>
+        <div class="titulo-seccion">
+            <h2 class="subitulo"><i class="fas fa-motorcycle"></i> Mi Entrega Actual</h2>
+            <p class="subitulo3">Pedido que aceptaste y está en camino.</p>
+        </div>
+        <div class="lista-pedidos" id="mi-entrega-activa">
+            </div>
+    </main>
 
-</div>
-</nav>
-</header>
+    <div class="mensaje" id="mensaje">Operación realizada con éxito</div>
 
-<main class="pedidos-container">
+    <script>
+    // Prioridad: 1. LocalStorage, 2. Un ID de prueba (ej: 1)
+    const idRepartidorActual = localStorage.getItem("id_trabajador") || 1; 
 
-<!-- ================= PENDIENTES ================= -->
-<div class="titulo-seccion">
-<h2 class="subitulo"><i class="fas fa-clock"></i> Pedidos Pendientes</h2>
-<p class="subitulo3">Pedidos que debes entregar.</p>
-</div>
+    document.addEventListener("DOMContentLoaded", () => {
+        cargarPedidos();
+        
+        // Lógica del menú móvil
+        const btnMenu = document.getElementById('btn-menu');
+        const menu = document.getElementById('menu-desplegable');
+        const icono = document.getElementById('icono-interfaz');
+        
+        btnMenu.addEventListener('click', () => {
+            menu.classList.toggle('navegacion__menu--activo');
+            if(icono) {
+                icono.classList.toggle('fa-xmark');
+                icono.classList.toggle('fa-bars');
+            }
+        });
+    });
 
-<div class="lista-pedidos" id="pendientes">
+    function cargarPedidos() {
+        // Añadimos un timestamp para evitar caché del navegador
+        fetch(`api/php/get_pedidos_repartidor.php?id_rep=${idRepartidorActual}&t=${Date.now()}`)
+            .then(res => res.json())
+            .then(data => {
+                if(data.status === "success") {
+                    renderizarDisponibles(data.disponibles);
+                    renderizarMiEntrega(data.mi_entrega);
+                } else {
+                    console.error("Error del servidor:", data.message);
+                }
+            })
+            .catch(err => {
+                console.error("Error de red o JSON inválido. Revisa la consola de PHP.");
+            });
+    }
 
-<!-- PEDIDO 1 -->
-<div class="pedido-card">
-<div class="pedido-header">
-<div class="pedido-info">
-<h3 class="galeria__texto">Pedido #001</h3>
-<span class="fecha">Hoy - 13:20</span>
-</div>
-<div class="estado en-proceso"><i class="fas fa-clock"></i> En proceso</div>
-</div>
-<div class="pedido-items">
-<div class="item"><p><span class="cantidad">1x</span> Chicharrón Estilo Colombiano</p><span class="precio">$450.00</span></div>
-<div class="item"><p><span class="cantidad">1x</span> Guacamole Extra</p><span class="precio">$25.00</span></div>
-</div>
-<div class="pedido-total">Total: $475.00</div>
-<div class="pedido-acciones">
-<button class="boton-entregar" onclick="marcarEntregado(this)">
-<i class="fas fa-check"></i> Marcar como entregado
-</button>
-</div>
-</div>
+    function renderizarDisponibles(pedidos) {
+        const container = document.getElementById("lista-disponibles");
+        if(!container) return;
 
-<!-- PEDIDO 2 -->
-<div class="pedido-card">
-<div class="pedido-header">
-<div class="pedido-info">
-<h3 class="galeria__texto">Pedido #002</h3>
-<span class="fecha">Hoy - 14:10</span>
-</div>
-<div class="estado en-proceso"><i class="fas fa-clock"></i> En proceso</div>
-</div>
-<div class="pedido-items">
-<div class="item"><p><span class="cantidad">2x</span> Hamburguesa Doble Caos</p><span class="precio">$200.00</span></div>
-</div>
-<div class="pedido-total">Total: $200.00</div>
-<div class="pedido-acciones">
-<button class="boton-entregar" onclick="marcarEntregado(this)">
-<i class="fas fa-check"></i> Marcar como entregado
-</button>
-</div>
-</div>
+        container.innerHTML = pedidos.length === 0 
+            ? '<p class="subitulo3">No hay pedidos pendientes de asignación.</p>' 
+            : "";
 
-<!-- PEDIDO 3 -->
-<div class="pedido-card">
-<div class="pedido-header">
-<div class="pedido-info">
-<h3 class="galeria__texto">Pedido #003</h3>
-<span class="fecha">Hoy - 15:05</span>
-</div>
-<div class="estado en-proceso"><i class="fas fa-clock"></i> En proceso</div>
-</div>
-<div class="pedido-items">
-<div class="item"><p><span class="cantidad">3x</span> Tacos de Arrachera</p><span class="precio">$150.00</span></div>
-<div class="item"><p><span class="cantidad">2x</span> Refresco</p><span class="precio">$60.00</span></div>
-</div>
-<div class="pedido-total">Total: $210.00</div>
-<div class="pedido-acciones">
-<button class="boton-entregar" onclick="marcarEntregado(this)">
-<i class="fas fa-check"></i> Marcar como entregado
-</button>
-</div>
-</div>
+        pedidos.forEach(p => {
+            const card = `
+                <div class="pedido-card">
+                    <div class="pedido-header">
+                        <div class="pedido-info">
+                            <h3 class="galeria__texto">Pedido #${p.id_pedidos}</h3>
+                            <span class="fecha">${p.fecha}</span>
+                        </div>
+                        <div class="estado en-proceso"><i class="fas fa-clock"></i> Pendiente</div>
+                    </div>
+                    <div class="pedido-items">
+                        <p><strong>Cliente:</strong> ${p.cliente_nombre}</p>
+                        <p><strong>Ubicación:</strong> ${p.calle} #${p.num_ext}, Col. ${p.colonia}</p>
+                        <p class="referencia-texto">Ref: ${p.referencias}</p>
+                    </div>
+                    <div class="pedido-total">Total: $${p.monto}</div>
+                    <div class="pedido-acciones">
+                        <button class="boton-entregar" style="background:#EAF158; color:black;" 
+                                onclick="gestionarPedido(${p.id_pedidos}, 'aceptar')">
+                            <i class="fas fa-motorcycle"></i> Aceptar este pedido
+                        </button>
+                    </div>
+                </div>`;
+            container.innerHTML += card;
+        });
+    }
 
-<!-- PEDIDO 4 -->
-<div class="pedido-card">
-<div class="pedido-header">
-<div class="pedido-info">
-<h3 class="galeria__texto">Pedido #004</h3>
-<span class="fecha">Hoy - 16:40</span>
-</div>
-<div class="estado en-proceso"><i class="fas fa-clock"></i> En proceso</div>
-</div>
-<div class="pedido-items">
-<div class="item"><p><span class="cantidad">1x</span> Chicharrón Especial Caos</p><span class="precio">$320.00</span></div>
-</div>
-<div class="pedido-total">Total: $320.00</div>
-<div class="pedido-acciones">
-<button class="boton-entregar" onclick="marcarEntregado(this)">
-<i class="fas fa-check"></i> Marcar como entregado
-</button>
-</div>
-</div>
+    function renderizarMiEntrega(pedidos) {
+        const container = document.getElementById("mi-entrega-activa");
+        if(!container) return;
 
-</div>
+        container.innerHTML = pedidos.length === 0 
+            ? '<p class="subitulo3">No tienes pedidos en curso.</p>' 
+            : "";
 
-<!-- ================= ENTREGADOS ================= -->
-<div class="titulo-seccion seccion-titulo">
-<h2 class="subitulo"><i class="fas fa-check-circle"></i> Pedidos Entregados</h2>
-<p class="subitulo3">Historial de pedidos completados.</p>
-</div>
+        pedidos.forEach(p => {
+            const card = `
+                <div class="pedido-card" style="border-color: #28a745;">
+                    <div class="pedido-header">
+                        <div class="pedido-info">
+                            <h3 class="galeria__texto">Pedido #${p.id_pedidos}</h3>
+                            <span class="fecha">TEL: ${p.telefono}</span>
+                        </div>
+                        <div class="estado" style="background:#28a745;"><i class="fas fa-truck"></i> En camino</div>
+                    </div>
+                    <div class="pedido-items">
+                        <p><strong>Cliente:</strong> ${p.cliente_nombre}</p>
+                        <p><strong>Dirección:</strong> ${p.calle} #${p.num_ext}, ${p.colonia}</p>
+                    </div>
+                    <div class="pedido-total">Total: $${p.monto}</div>
+                    <div class="pedido-acciones">
+                        <button class="boton-entregar" onclick="gestionarPedido(${p.id_pedidos}, 'entregar')">
+                            <i class="fas fa-check"></i> Confirmar Entrega
+                        </button>
+                    </div>
+                </div>`;
+            container.innerHTML += card;
+        });
+    }
 
-<div class="lista-pedidos entregados" id="entregados"></div>
+    function gestionarPedido(idPedido, accion) {
+        const fd = new FormData();
+        fd.append("id_pedido", idPedido);
+        fd.append("id_repartidor", idRepartidorActual);
+        fd.append("accion", accion);
 
-</main>
+        fetch("api/php/actualizar_pedido.php", {
+            method: "POST",
+            body: fd
+        })
+        .then(res => res.json())
+        .then(data => {
+            if(data.status === "success") {
+                mostrarMensaje(accion === "aceptar" ? "¡Pedido asignado!" : "¡Pedido entregado!");
+                cargarPedidos();
+            }
+        });
+    }
 
-<footer class="footer">
-<div class="footer__container">
-<div class="footer__info">
-<h3 class="footer__brand">La madre del caos</h3>
-<p class="footer__text">Golondrinas #116 Nezahualcóyotl</p>
-<p class="footer__text">Teléfono: 341 439 4591</p>
-</div>
-<div class="footer__rights">
-<p class="footer__rights-text">Todos los derechos reservados ©BitBang</p>
-</div>
-</div>
-</footer>
-
-<div class="mensaje" id="mensaje">Pedido entregado correctamente</div>
-
-<script>
-const btnMenu=document.getElementById('btn-menu');
-const menu=document.getElementById('menu-desplegable');
-const icono=document.getElementById('icono-interfaz');
-
-btnMenu.addEventListener('click',()=>{
-menu.classList.toggle('navegacion__menu--activo');
-icono.classList.toggle('fa-xmark');
-icono.classList.toggle('fa-bars');
-});
-
-function marcarEntregado(boton){
-const tarjeta=boton.closest(".pedido-card");
-const estado=tarjeta.querySelector(".estado");
-
-estado.classList.remove("en-proceso");
-estado.classList.add("entregado");
-estado.innerHTML='<i class="fas fa-check-circle"></i> Entregado';
-
-boton.remove();
-document.getElementById("entregados").appendChild(tarjeta);
-mostrarMensaje();
-}
-
-function mostrarMensaje(){
-const msg=document.getElementById("mensaje");
-msg.style.display="block";
-setTimeout(()=>{msg.style.display="none";},2500);
-}
+    function mostrarMensaje(texto) {
+        const msg = document.getElementById("mensaje");
+        msg.textContent = texto;
+        msg.style.display = "block";
+        setTimeout(() => { msg.style.display = "none"; }, 2500);
+    }
 </script>
-
 </body>
 </html>
