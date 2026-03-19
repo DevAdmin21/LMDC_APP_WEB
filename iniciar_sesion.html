@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>La Madre Del Caos - Iniciar Sesión</title>
+    <script src="api/js/lib/manejaErrores.js"></script>
     <link rel="stylesheet" href="CSS/estilo_iniciarsesion.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Open+Sans:wght@300;400;700&display=swap" rel="stylesheet">
@@ -15,7 +16,7 @@
             <img src="Imágenes/Isotipo.png" alt="Logo La Madre Del Caos">
         </a>
     </header>
-
+    <from id="formulario">
     <div class="contenedor">
         <form id="formulario-login" class="login-form">
             <h2>Iniciar sesión</h2>
@@ -51,6 +52,23 @@
             </div>
         </div>
     </footer>
-    <script src="api/js/lib/login.js"></script>
+    </footer>
+     <script type="module">
+  import { consume } from "./js/lib/consume.js"
+  import { enviaFormRecibeJson } from "./js/lib/enviaFormRecibeJson.js"
+  formulario.addEventListener("submit", submit)
+  /**
+   * @param {Event} event
+   */
+  async function submit(event) {
+   event.preventDefault()
+   const respuesta = await consume(
+    enviaFormRecibeJson(
+     "php/valida.php", formulario))
+   const json =
+    await respuesta.json()
+   alert(json)
+  }
+ </script>
 </body> 
 </html>
