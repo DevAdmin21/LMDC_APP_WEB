@@ -1,111 +1,129 @@
-let platillos = [];
+import { recibeJson } from "../api/js/lib/recibeJson.js";
+import { muestraError } from "../api/js/lib/muestraError.js";
+import { ProblemDetailsError } from "../api/js/lib/ProblemDetailsError.js";
+
 
 document.addEventListener("DOMContentLoaded", function () {
 
-    // ======================
-    // Cargar platillos desde API
-    // ======================
-    fetch("api/php/visualizar_menu.php")
-    .then(res => res.json())
-    .then(data => {
-        platillos = data.platillos || data; 
-    })
-    .catch(error => console.log(error));
-
-    // ======================
-    // Botones de categoría en la galería
-    // ======================
     const botones = document.querySelectorAll(".categorias button");
-    botones.forEach(btn => {
-        btn.addEventListener("click", () => {
-            botones.forEach(b => b.classList.remove("active"));
-            btn.classList.add("active");
-
-            const categoria = btn.textContent === "Todos" ? "todos" : btn.textContent;
-            filtrarCategoria(categoria);
-        });
-    });
-
-    // ======================
-    // Pantalla inicial de selección de categoría
-    // ======================
     const categoriasHome = document.querySelectorAll(".categoria-item");
     const inicioCategorias = document.getElementById("inicio-categorias");
     const galeriaPrincipal = document.getElementById("galeria-principal");
 
-    categoriasHome.forEach(cat => {
-        cat.addEventListener("click", () => {
-            const categoria = cat.getAttribute("data-categoria");
-            inicioCategorias.style.display = "none";  
-            galeriaPrincipal.style.display = "block"; 
-            filtrarCategoria(categoria);
+    // ======================
+    // BOTONES DE GALERÍA
+    // ======================
+    botones.forEach(btn => {
+        btn.addEventListener("click", () => {
 
-            document.querySelectorAll(".categorias button").forEach(b => b.classList.remove("active"));
-            const btnGaleria = Array.from(document.querySelectorAll(".categorias button"))
-                .find(b => b.textContent === cat.querySelector("h2").textContent);
-            if(btnGaleria) btnGaleria.classList.add("active");
+            botones.forEach(b => b.classList.remove("active"));
+            btn.classList.add("active");
+
+            const categoria = btn.textContent === "Todos" ? "todos" : btn.textContent;
+
+            cargarPlatillos(categoria);
         });
     });
 
     // ======================
-    // Modal del platillo
+    // PANTALLA INICIAL
+    // ======================
+    categoriasHome.forEach(cat => {
+        cat.addEventListener("click", () => {
+
+            const categoria = cat.getAttribute("data-categoria");
+
+            inicioCategorias.style.display = "none";
+            galeriaPrincipal.style.display = "block";
+
+            cargarPlatillos(categoria);
+
+            // Activar botón correspondiente
+            document.querySelectorAll(".categorias button").forEach(b => b.classList.remove("active"));
+
+            const btnGaleria = Array.from(document.querySelectorAll(".categorias button"))
+                .find(b => b.textContent.toLowerCase() === categoria.toLowerCase());
+
+            if (btnGaleria) btnGaleria.classList.add("active");
+        });
+    });
+
+    // ======================
+    // MODAL
     // ======================
     const modal = document.getElementById("modal");
     const cerrarBtn = modal.querySelector(".cerrar");
 
     cerrarBtn.addEventListener("click", cerrarModal);
-    modal.addEventListener("click", (e) => { if(e.target === modal) cerrarModal(); });
+    modal.addEventListener("click", (e) => { if (e.target === modal) cerrarModal(); });
 
 });
 
 // ======================
-// Funciones
+// CARGAR DESDE BACKEND
 // ======================
+async function cargarPlatillos(categoria = "todos") {
+    try {
 
-function mostrarPlatillos(lista){
+        const url = `api/php/visualizar_menu.php?categoria=${encodeURIComponent(categoria)}`;
+
+        const res = await recibeJson(url);
+        const data = await res.json();
+
+        if (!res.ok) {
+            throw new ProblemDetailsError(data);
+        }
+
+        mostrarPlatillos(data.platillos || []);
+
+    } catch (error) {
+        muestraError(error);
+    }
+}
+
+// ======================
+// MOSTRAR PLATILLOS
+// ======================
+function mostrarPlatillos(lista) {
+
     const contenedor = document.getElementById("contenedor-menu");
     contenedor.innerHTML = "";
 
     lista.forEach(p => {
-        if(p.imagen && p.precio){
-            const item = document.createElement("div");
-            item.classList.add("galeria__item");
-            item.innerHTML = `
-                <img src="${p.imagen}" class="galeria__img">
-                <p class="galeria__texto">${p.nombre}</p>
-                <p style="font-weight:bold">$${p.precio}</p>
-            `;
-            contenedor.appendChild(item);
-            item.addEventListener("click", () => abrirModal(p));
-        }
+
+        const item = document.createElement("div");
+        item.classList.add("galeria__item");
+
+        item.innerHTML = `
+            <img src="${p.imagen}" class="galeria__img">
+            <p class="galeria__texto">${p.nombre}</p>
+            <p style="font-weight:bold">$${p.precio}</p>
+        `;
+
+        contenedor.appendChild(item);
+
+        item.addEventListener("click", () => abrirModal(p));
     });
 }
 
-function filtrarCategoria(categoria){
-    if(categoria === "todos"){
-        mostrarPlatillos(platillos);
-        return;
-    }
-    const filtrados = platillos.filter(p => p.categoria === categoria);
-    mostrarPlatillos(filtrados);
-}
+// ======================
+// MODAL
+// ======================
+function abrirModal(platillo) {
 
-// FUNCIÓN CORREGIDA
-function abrirModal(platillo){
     document.getElementById("modal-imagen").src = platillo.imagen;
     document.getElementById("modal-nombre").textContent = platillo.nombre;
     document.getElementById("modal-descripcion").textContent = platillo.descripcion;
     document.getElementById("modal-precio").textContent = "$" + platillo.precio;
+
     document.getElementById("modal").style.display = "flex";
 
     const btnAgregar = document.getElementById("agregar-carrito");
-    
-    // Definimos una única vez la acción del botón
+
     btnAgregar.onclick = () => {
-        // 1. Obtener el carrito actual
+
         let carrito = JSON.parse(localStorage.getItem("carrito_caos")) || [];
 
-        // 2. Añadir el nuevo platillo
         carrito.push({
             id: platillo.id_platillo || Date.now(),
             nombre: platillo.nombre,
@@ -113,7 +131,6 @@ function abrirModal(platillo){
             imagen: platillo.imagen
         });
 
-        // 3. Guardar en localStorage
         localStorage.setItem("carrito_caos", JSON.stringify(carrito));
 
         alert(`${platillo.nombre} agregado al carrito!`);
@@ -121,6 +138,16 @@ function abrirModal(platillo){
     };
 }
 
-function cerrarModal(){
+function cerrarModal() {
     document.getElementById("modal").style.display = "none";
 }
+
+// ======================
+// FUNCIÓN GLOBAL
+// ======================
+function filtrarCategoria(categoria){
+    cargarPlatillos(categoria);
+}
+
+// DESPUÉS de declararla
+window.filtrarCategoria = filtrarCategoria;
