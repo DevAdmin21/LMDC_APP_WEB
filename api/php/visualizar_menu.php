@@ -2,22 +2,26 @@
 
 require_once __DIR__ . "/Conexion.php";
 require_once __DIR__ . "/lib/devuelveJson.php";
+require_once __DIR__ . "/lib/recibeJson.php";
 
-$bd = Conexion::getInstance()->getConnection();
+$pdo = Conexion::getInstance()->getConnection(); //PDO
 
-$categoria = $_GET["categoria"] ?? null;
+// RECIBE JSON
+$datos = recibeJson();
+
+$categoria = $datos->categoria ?? null;
 
 $sql = "SELECT 
-p.id_platillo,
-p.nombre,
-p.precio,
-p.imagen,
-p.descripcion,
-c.nombre AS categoria
-FROM platillo p
-JOIN categoria_platillos c 
-ON p.id_categoria = c.id_categoria
-WHERE p.disponibilidad = 1";
+    p.id_platillo,
+    p.nombre,
+    p.precio,
+    p.imagen,
+    p.descripcion,
+    c.nombre AS categoria
+    FROM platillo p
+    JOIN categoria_platillos c 
+    ON p.id_categoria = c.id_categoria
+    WHERE p.disponibilidad = 1";
 
 $params = [];
 
@@ -26,7 +30,7 @@ if ($categoria && $categoria !== "todos") {
     $params[":categoria"] = $categoria;
 }
 
-$stmt = $bd->prepare($sql);
+$stmt = $pdo->prepare($sql);
 $stmt->execute($params);
 
 $lista = $stmt->fetchAll(PDO::FETCH_ASSOC);

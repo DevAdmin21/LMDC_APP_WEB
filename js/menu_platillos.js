@@ -1,78 +1,79 @@
-import { recibeJson } from "../api/js/lib/recibeJson.js";
+import { enviaJsonRecibeJson } from "../api/js/lib/enviaJsonRecibeJson.js";
 import { muestraError } from "../api/js/lib/muestraError.js";
 import { ProblemDetailsError } from "../api/js/lib/ProblemDetailsError.js";
 
+document.addEventListener("DOMContentLoaded", () => {
 
-document.addEventListener("DOMContentLoaded", function () {
-
-    const botones = document.querySelectorAll(".categorias button");
-    const categoriasHome = document.querySelectorAll(".categoria-item");
-    const inicioCategorias = document.getElementById("inicio-categorias");
-    const galeriaPrincipal = document.getElementById("galeria-principal");
+    const inicio = document.getElementById("inicio-categorias");
+    const galeria = document.getElementById("galeria-principal");
 
     // ======================
-    // BOTONES DE GALERÍA
+    // CLICK GLOBAL (TODO)
     // ======================
-    botones.forEach(btn => {
-        btn.addEventListener("click", () => {
+    document.addEventListener("click", (e) => {
 
-            botones.forEach(b => b.classList.remove("active"));
-            btn.classList.add("active");
+        // CLICK EN TARJETAS INICIALES
+        const catHome = e.target.closest(".categoria-item");
+        if (catHome) {
+            const categoria = catHome.dataset.categoria;
 
-            const categoria = btn.textContent === "Todos" ? "todos" : btn.textContent;
+            inicio.style.display = "none";
+            galeria.style.display = "block";
 
+            activarBoton(categoria);
             cargarPlatillos(categoria);
-        });
-    });
+        }
 
-    // ======================
-    // PANTALLA INICIAL
-    // ======================
-    categoriasHome.forEach(cat => {
-        cat.addEventListener("click", () => {
+        // CLICK EN BOTONES
+        const btn = e.target.closest(".categorias button");
+        if (btn) {
+            const categoria = btn.textContent.trim();
 
-            const categoria = cat.getAttribute("data-categoria");
+            activarBoton(categoria);
+            cargarPlatillos(categoria === "Todos" ? "todos" : categoria);
+        }
 
-            inicioCategorias.style.display = "none";
-            galeriaPrincipal.style.display = "block";
-
-            cargarPlatillos(categoria);
-
-            // Activar botón correspondiente
-            document.querySelectorAll(".categorias button").forEach(b => b.classList.remove("active"));
-
-            const btnGaleria = Array.from(document.querySelectorAll(".categorias button"))
-                .find(b => b.textContent.toLowerCase() === categoria.toLowerCase());
-
-            if (btnGaleria) btnGaleria.classList.add("active");
-        });
     });
 
     // ======================
     // MODAL
     // ======================
     const modal = document.getElementById("modal");
-    const cerrarBtn = modal.querySelector(".cerrar");
 
-    cerrarBtn.addEventListener("click", cerrarModal);
-    modal.addEventListener("click", (e) => { if (e.target === modal) cerrarModal(); });
+    modal.querySelector(".cerrar").onclick = cerrarModal;
+    modal.onclick = (e) => { if (e.target === modal) cerrarModal(); };
 
 });
 
+
 // ======================
-// CARGAR DESDE BACKEND
+// ACTIVAR BOTÓN
+// ======================
+function activarBoton(categoria){
+    document.querySelectorAll(".categorias button").forEach(b => {
+        b.classList.toggle(
+            "active",
+            b.textContent.toLowerCase() === categoria.toLowerCase()
+        );
+    });
+}
+
+
+// ======================
+// API (JSON)
 // ======================
 async function cargarPlatillos(categoria = "todos") {
     try {
 
-        const url = `api/php/visualizar_menu.php?categoria=${encodeURIComponent(categoria)}`;
+        const res = await enviaJsonRecibeJson(
+            "api/php/visualizar_menu.php",
+            { categoria },
+            "POST"
+        );
 
-        const res = await recibeJson(url);
         const data = await res.json();
 
-        if (!res.ok) {
-            throw new ProblemDetailsError(data);
-        }
+        if (!res.ok) throw new ProblemDetailsError(data);
 
         mostrarPlatillos(data.platillos || []);
 
@@ -81,35 +82,34 @@ async function cargarPlatillos(categoria = "todos") {
     }
 }
 
+
 // ======================
-// MOSTRAR PLATILLOS
+// RENDER
 // ======================
-function mostrarPlatillos(lista) {
+function mostrarPlatillos(lista){
 
     const contenedor = document.getElementById("contenedor-menu");
     contenedor.innerHTML = "";
 
     lista.forEach(p => {
 
-        const item = document.createElement("div");
-        item.classList.add("galeria__item");
+       
 
-        item.innerHTML = `
+        contenedor.innerHTML += `
+        <div class="galeria__item" onclick='abrirModal(${JSON.stringify(p)})'>
             <img src="${p.imagen}" class="galeria__img">
             <p class="galeria__texto">${p.nombre}</p>
             <p style="font-weight:bold">$${p.precio}</p>
+        </div>
         `;
-
-        contenedor.appendChild(item);
-
-        item.addEventListener("click", () => abrirModal(p));
     });
 }
+
 
 // ======================
 // MODAL
 // ======================
-function abrirModal(platillo) {
+window.abrirModal = function(platillo){
 
     document.getElementById("modal-imagen").src = platillo.imagen;
     document.getElementById("modal-nombre").textContent = platillo.nombre;
@@ -118,9 +118,7 @@ function abrirModal(platillo) {
 
     document.getElementById("modal").style.display = "flex";
 
-    const btnAgregar = document.getElementById("agregar-carrito");
-
-    btnAgregar.onclick = () => {
+    document.getElementById("agregar-carrito").onclick = () => {
 
         let carrito = JSON.parse(localStorage.getItem("carrito_caos")) || [];
 
@@ -133,21 +131,11 @@ function abrirModal(platillo) {
 
         localStorage.setItem("carrito_caos", JSON.stringify(carrito));
 
-        alert(`${platillo.nombre} agregado al carrito!`);
+        alert("Agregado al carrito");
         cerrarModal();
     };
 }
 
-function cerrarModal() {
+function cerrarModal(){
     document.getElementById("modal").style.display = "none";
 }
-
-// ======================
-// FUNCIÓN GLOBAL
-// ======================
-function filtrarCategoria(categoria){
-    cargarPlatillos(categoria);
-}
-
-// DESPUÉS de declararla
-window.filtrarCategoria = filtrarCategoria;
